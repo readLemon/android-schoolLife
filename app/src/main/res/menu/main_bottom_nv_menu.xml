@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/nav_main_graph"
+        android:icon="@drawable/ic_main_bottom_home"
+        android:title="主页"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/nav_sort"
+        android:icon="@drawable/ic_main_bottom_type"
+        android:title="分类"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/nav_mine"
+        android:icon="@drawable/ic_main_bottom_mine"
+        android:title="我的"
+        tools:ignore="HardcodedText" />
+</menu>

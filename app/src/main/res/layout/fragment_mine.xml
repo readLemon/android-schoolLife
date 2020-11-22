@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_white"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_mine_user_avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="15dp"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/color_white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_image_user"/>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="登录/注册 >"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/iv_mine_user_avatar"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_mine_user_avatar"
+                app:layout_constraintTop_toTopOf="@+id/iv_mine_user_avatar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_mine_setting"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_mine_setting"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_mine_message"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toStartOf="@+id/iv_mine_setting"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_mine_setting"
+                app:layout_constraintTop_toTopOf="@+id/iv_mine_setting"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:background="#FFFFFF"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="0\n信誉评分"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="0\n累计评价"
+                android:gravity="center"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:textSize="16sp"
+                android:text="0\n在售商品数"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:text="0\n已售商品"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:text="评价墙"
+            android:textSize="16sp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textColor="#000000"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginEnd="10dp"
+            android:background="#FFFFFF"
+            android:layout_height="30dp">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="我的购物"
+                android:layout_marginStart="10dp"
+                android:gravity="start|center_vertical"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="查看全部订单 >"
+                android:layout_marginEnd="10dp"
+                android:gravity="end|center_vertical"
+                android:layout_weight="1"
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="10dp"
+                android:text="我购买的"
+                android:textColor="#000000"
+                android:drawableTop="@drawable/ic_mine_buy"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:text="我发布的"
+                android:textColor="#000000"
+                android:drawableTop="@drawable/ic_mine_product"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
