@@ -17,7 +17,6 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_main_rv_title"
-        android:layout_marginTop="5dp"
         android:ellipsize="marquee"
         tools:text ="三十三岁三十三岁三十三岁三十三岁三十三岁三十三"
         app:layout_constraintStart_toStartOf="@+id/iv_main_rv_product_pic"
@@ -37,7 +36,6 @@
         android:textSize="15sp"
         android:textColor="#FD0000"
         app:layout_constraintStart_toStartOf="@+id/tv_main_rv_title"
-        android:layout_marginTop="5dp"
         tools:text="$122"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_rv_title"/>
 
@@ -45,15 +43,16 @@
         android:id="@+id/civ_main_rv_avatar"
         app:layout_constraintStart_toStartOf="@+id/tv_main_rv_title"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_rv_price"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:src="@drawable/ic_main_bottom_mine"/>
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_main_rv_username"
-        android:textSize="14sp"
+        android:textSize="15sp"
         tools:text="三十三岁搜索"
         android:ellipsize="marquee"
+        android:layout_marginStart="5dp"
         app:layout_constraintBottom_toBottomOf="@+id/civ_main_rv_avatar"
         app:layout_constraintTop_toTopOf="@+id/civ_main_rv_avatar"
         app:layout_constraintStart_toEndOf="@+id/civ_main_rv_avatar"

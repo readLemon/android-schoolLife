@@ -39,6 +39,7 @@
 
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_fm_mine_goto_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="登录/注册 >"

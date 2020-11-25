@@ -1,0 +1,22 @@
+{
+  "info": "请求成功",
+  "status": 200,
+  "data": {
+    "reputationCore": 100, //信誉评分
+    "accumulatedComment": 10, //累计评价条数
+    "soldingNum": 10, //在售商品数量
+    "soledNum": 10, //已售商品数量
+    "commentWall": [
+      {
+        "commentatorUid": 10010, //评论者id
+        "commentatorAvatarPic": "http://xxxxxxx", //评论者头像
+        "commentContent": "xxxxxx" //评论内容
+      },
+      {
+        "commentatorUid": 10010,
+        "commentatorAvatarPic": "http://xxxxxxx",
+        "commentContent": "xxxxxx"
+      }
+    ]
+  }
+}

@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity()
     , BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private var preNavPos = 0
+    private var preNavPos = -1
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -36,8 +36,6 @@ class MainActivity : AppCompatActivity()
                     nav_main.menu.getItem(position).setChecked(true)
             }
         })
-
-
     }
 
 

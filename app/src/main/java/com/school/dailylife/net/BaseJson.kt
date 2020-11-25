@@ -1,4 +1,4 @@
-package com.school.dailylife.bean
+package com.school.dailylife.net
 
 import com.google.gson.Gson
 

@@ -10,7 +10,7 @@ data class User(
     val signature: String,
     val token: String
 ) {
-    var userName: String = ""
+    var username: String = ""
     var psw: String = ""
 }
 

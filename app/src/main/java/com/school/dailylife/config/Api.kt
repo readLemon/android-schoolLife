@@ -9,5 +9,7 @@ object Api {
 
     const val login = "/login"
 
-    const val mainPageData = "/getInitData"
+    const val mainFmData = "/getInitData"
+
+    const val mineFmData = "/geMineData"
 }

@@ -1,7 +1,7 @@
 package com.school.dailylife.repository
 
 import com.mredrock.runtogether.network.JsonWrapperFunc
-import com.school.dailylife.bean.BaseJson
+import com.school.dailylife.net.BaseJson
 import com.school.dailylife.bean.User
 import com.school.dailylife.net.service.UserService
 import io.reactivex.Observable
