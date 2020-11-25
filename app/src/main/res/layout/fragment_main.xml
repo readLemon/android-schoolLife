@@ -53,21 +53,17 @@
                 app:layout_constraintEnd_toEndOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/lunbo_main"
+        <com.youth.banner.Banner
+            android:id="@+id/banner_main"
             android:layout_width="match_parent"
             android:layout_height="150dp"
-            android:background="#144"
-            android:gravity="center"
-            android:text="我是轮播图"
-            android:textColor="#FFFFFF"
             app:layout_constraintTop_toBottomOf="@+id/cl_mian_head" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lunbo_main">
+            app:layout_constraintTop_toBottomOf="@+id/banner_main">
 
 
             <androidx.appcompat.widget.AppCompatTextView

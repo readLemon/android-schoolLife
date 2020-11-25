@@ -1,4 +1,6 @@
-package com.school.dailylife.bean
+package com.school.dailylife.net
+
+import com.school.dailylife.bean.BaseJson
 
 /**
  * Created by chenyang

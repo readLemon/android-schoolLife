@@ -52,7 +52,7 @@
             android:background="@drawable/shape_login_username_bg"
             android:gravity="center"
             android:hint="请输入用户名"
-            android:inputType="textVisiblePassword"
+            android:inputType="text"
             android:paddingStart="10dp"
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.textfield.TextInputLayout>

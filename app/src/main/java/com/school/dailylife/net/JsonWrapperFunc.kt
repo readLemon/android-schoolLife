@@ -1,7 +1,7 @@
 package com.mredrock.runtogether.network
 
 import android.util.Log
-import com.school.dailylife.bean.JsonWrapper
+import com.school.dailylife.net.JsonWrapper
 import com.school.dailylife.config.DEFAULT_FAULT_INFO
 import com.school.dailylife.net.Fault
 import io.reactivex.functions.Function

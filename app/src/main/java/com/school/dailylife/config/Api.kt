@@ -8,4 +8,6 @@ object Api {
     const val BASE_URL = "http://irving.run/"
 
     const val login = "/login"
+
+    const val mainPageData = "/getInitData"
 }

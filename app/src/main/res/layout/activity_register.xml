@@ -49,7 +49,7 @@
             android:background="@drawable/shape_login_username_bg"
             android:gravity="center"
             android:hint="请输入用户名"
-            android:inputType="textVisiblePassword"
+            android:inputType="text"
             android:maxLines="1"
             android:paddingStart="10dp"
             tools:ignore="RtlSymmetry" />

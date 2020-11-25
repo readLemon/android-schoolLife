@@ -1,6 +1,6 @@
 package com.school.dailylife.repository
 
-import android.icu.text.UFormat
+import com.mredrock.runtogether.network.RetrofitManager
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -9,7 +9,14 @@ import io.reactivex.schedulers.Schedulers
  * Created by chenyang
  * on 20-11-23
  */
-abstract class BaseRepository {
+abstract class BaseRepository<T> {
+    abstract val serviceClass : Class<T>
+
+    val service = RetrofitManager.getInstance().create(serviceClass)
+
+
+
+
 
     fun <T> observable(observable: Observable<T>) = observable.subscribeOn(Schedulers.io())
         .unsubscribeOn(Schedulers.io())
