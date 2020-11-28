@@ -7,6 +7,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.school.dailylife.R
 import com.school.dailylife.bean.BannerMainBean
 import com.school.dailylife.bean.MainProductBean
+import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
@@ -86,9 +87,7 @@ class MainFragment : BaseFragment() {
             R.layout.item_rv_main,
             datas,
             { bean ->
-                Glide.with(this@MainFragment)
-                    .load(bean.productPic)
-                    .into(iv_main_rv_product_pic)
+                iv_main_rv_product_pic.loadPic(bean.productPic)
                 tv_main_rv_title.text = bean.title
                 tv_main_rv_price.text = "$${bean.price}"
 

@@ -8,6 +8,21 @@
     android:background="@color/color_white"
     tools:context=".view.activity.LoginActivity">
 
+    <TextView
+        android:id="@+id/tv_login_bg"
+        android:elevation="5dp"
+        android:visibility="gone"
+        android:background="@color/colorPrimaryDark"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_login"
+        android:elevation="10dp"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_login_text_login"
         android:layout_width="wrap_content"
