@@ -29,10 +29,10 @@ class SortFragment : BaseFragment() {
 
     private fun fillFakdata() {
         val data = listOf(
-            SortTypeBean("热门食品1"),
-            SortTypeBean("热门食品2"),
-            SortTypeBean("热门食品3"),
-            SortTypeBean("热门食品4")
+            SortTypeBean(listOf(),0,"热门食品1"),
+            SortTypeBean(listOf(),0,"热门食品2"),
+            SortTypeBean(listOf(),0,"热门食品3"),
+            SortTypeBean(listOf(),0,"热门食品4")
         )
         val adapter = CommonRecyclerAdapter(
             R.layout.item_rv_sort_slide

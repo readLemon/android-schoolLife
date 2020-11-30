@@ -20,14 +20,14 @@ class SortDetailFragment : BaseFragment() {
     override fun initView(view: View) {
         val data = mutableListOf<SortDetailBean>()
         for (i in 1..15) {
-            data.add(SortDetailBean("食品","https://pic4.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_1440w.jpg"));
+            data.add(SortDetailBean(0,"食品","https://pic4.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_1440w.jpg"));
         }
 
 //https://pic4.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_1440w.jpg
         val adapter = CommonRecyclerAdapter(R.layout.item_rv_sort_detail
         ,data
         ,{sortTypeBean ->
-                this.tv_sort_detail_name.text = sortTypeBean.typename
+                this.tv_sort_detail_name.text = sortTypeBean.name
                 Glide.with(context)
                     .load(sortTypeBean.picUrl)
                     .into(this.iv_sort_detail_pic)

@@ -1,0 +1,43 @@
+{//分类页面的数据
+  "info": "请求成功",
+  "status": 200,
+  "data": {
+    "hotSearch": "xxxxx", //上方的热门搜索
+    "messageNum": 1, //未读消息条数
+    "sideList": [
+      {
+        //这里使用了两个id,来唯一确认一个点击点进去的对象,为了方便后面的点进去后详情页数据请求
+        "id": 0, //侧面的板块id
+        "type": "xxxxx",//侧边板块主题名
+        "detail": [
+          {
+            "id": 0, //id板块id号
+            "name": "sxxxx", //小板块的名字
+            "picUrl": "http://xxxxxxxx"//图片的url
+          },
+          {
+            "id": 1, //id板块id号
+            "name": "sxxxx", //小板块的名字
+            "picUrl": "http://xxxxxxxx"//图片的url
+          }
+        ]
+      },
+      {
+        "id": 1,
+        "title": "xxxxx",
+        "detail": [
+          {
+            "id": 0,
+            "name": "sxxxx",
+            "picUrl": "http://xxxxxxxx"
+          },
+          {
+            "id": 1,
+            "name": "sxxxx",
+            "picUrl": "http://xxxxxxxx"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -12,4 +12,6 @@ object Api {
     const val mainFmData = "/getInitData"
 
     const val mineFmData = "/geMineData"
+
+    const val sortFmData = "/getSort"
 }
