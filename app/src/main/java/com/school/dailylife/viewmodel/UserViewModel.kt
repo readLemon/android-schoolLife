@@ -22,6 +22,7 @@ class UserViewModel: BaseViewModel() {
             isLoginSuccess.value = true
         },{
             isLoginSuccess.value = false
+            it.printStackTrace()
         }).lifeCycle()
     }
 
@@ -30,6 +31,7 @@ class UserViewModel: BaseViewModel() {
             isRegisterSuccess.value = true
         },{
             isRegisterSuccess.value = false
+            it.printStackTrace()
         }).lifeCycle()
     }
 

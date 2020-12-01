@@ -18,7 +18,7 @@ interface MainFmService {
 
     @GET(Api.mainFmData)
     fun getMainData(
-        @Header("token") token: String
+        @Header(Api.TOKEN_STR) token: String
     ): Observable<JsonWrapper<MainDataBean>>
 
 

@@ -4,8 +4,6 @@ import com.school.dailylife.bean.MineFmBean
 import com.school.dailylife.config.Api
 import com.school.dailylife.net.JsonWrapper
 import io.reactivex.Observable
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.POST
 
@@ -15,10 +13,9 @@ import retrofit2.http.POST
  */
 interface MineFmService {
 
-    @FormUrlEncoded
     @POST(Api.mineFmData)
     fun getMineData(
-        @Header("token") token: String
+        @Header(Api.TOKEN_STR) token: String
     ): Observable<JsonWrapper<MineFmBean>>
 
 }

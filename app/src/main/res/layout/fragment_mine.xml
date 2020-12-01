@@ -39,10 +39,11 @@
 
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/tv_fm_mine_goto_login"
+                    android:id="@+id/tv_fm_mine_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="登录/注册 >"
+                    android:layout_marginStart="5dp"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_mine_user_avatar"
                     app:layout_constraintStart_toEndOf="@+id/iv_mine_user_avatar"
@@ -76,6 +77,7 @@
                 android:orientation="horizontal">
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_fm_mine_reputation_score"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -85,6 +87,7 @@
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_fm_mine_comment_num"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -94,6 +97,7 @@
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_fm_mine_solding_num"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -103,6 +107,7 @@
                     android:textSize="16sp" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_fm_mine_soled_num"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

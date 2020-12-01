@@ -1,7 +1,9 @@
 package com.school.dailylife.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.liveData
+import com.google.gson.Gson
 import com.school.dailylife.bean.SortBean
 import com.school.dailylife.repository.SortFmRepository
 
@@ -11,7 +13,7 @@ import com.school.dailylife.repository.SortFmRepository
  */
 class SortFmViewModel : BaseViewModel() {
 
-    val repo by lazy { SortFmRepository() }
+    private val repo by lazy { SortFmRepository() }
 
     val sortBean by lazy { MutableLiveData<SortBean>() }
 //    val sortBean = liveData<SortBean> {
@@ -26,7 +28,9 @@ class SortFmViewModel : BaseViewModel() {
                 {
                     sortBean.value = it
                 },
-                {}
+                {
+                    it.printStackTrace()
+                }
             )
             .lifeCycle()
     }

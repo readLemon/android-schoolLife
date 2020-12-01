@@ -26,7 +26,7 @@ interface UserService {
     @FormUrlEncoded
     @POST(Api.login)
     fun register(
-        @Field("username") username: String,
+        @Field("accountNumber") username: String,
         @Field("password") psw: String
     ): Observable<JsonWrapper<BaseJson>>
 

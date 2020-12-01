@@ -4,9 +4,7 @@ import com.school.dailylife.bean.SortBean
 import com.school.dailylife.config.Api
 import com.school.dailylife.net.JsonWrapper
 import io.reactivex.Observable
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.Header
+import retrofit2.http.POST
 
 /**
  * Created by chenyang
@@ -14,6 +12,6 @@ import retrofit2.http.Header
  */
 interface SortFmService {
 
-    @GET(Api.sortFmData)
+    @POST(Api.sortFmData)
     fun getSort(): Observable<JsonWrapper<SortBean>>
 }

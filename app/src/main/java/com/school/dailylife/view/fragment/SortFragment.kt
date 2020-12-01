@@ -5,12 +5,13 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.school.dailylife.R
-import com.school.dailylife.bean.SortDetailBean
 import com.school.dailylife.bean.SortTypeBean
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
+import com.school.dailylife.viewmodel.SortFmViewModel
 import kotlinx.android.synthetic.main.fragment_sort.*
 import kotlinx.android.synthetic.main.item_rv_sort_slide.view.*
 
@@ -22,22 +23,19 @@ class SortFragment : LazyFragment() {
     override val contentViewId: Int
         get() = R.layout.fragment_sort
 
+    private val viewmodel by viewModels<SortFmViewModel>({requireActivity()})
 
     override fun afterViewCteated(view: View) {
-
+        observedata()
     }
 
     override fun initData() {
-        fillFakdata()
+        viewmodel.getSort()
     }
 
-    private fun fillFakdata() {
-        val data = listOf(
-            SortTypeBean(listOf(),0,"热门食品1"),
-            SortTypeBean(listOf(),0,"热门食品2"),
-            SortTypeBean(listOf(),0,"热门食品3"),
-            SortTypeBean(listOf(),0,"热门食品4")
-        )
+    private fun observedata() {
+        val data = mutableListOf<SortTypeBean>()
+
         val adapter = CommonRecyclerAdapter(
             R.layout.item_rv_sort_slide
             , data
@@ -49,8 +47,15 @@ class SortFragment : LazyFragment() {
             })
 
         rv_sort_slide.adapter = adapter
-
         vp_sort_detail.adapter = MyViewPagerAdapter(childFragmentManager, this@SortFragment.lifecycle)
+        viewmodel.sortBean.observe{
+            if (it != null) {
+                data.clear()
+                data.addAll(it.sortTypeBeanList)
+                adapter.notifyDataSetChanged()
+            }
+        }
+
     }
 
     inner class MyViewPagerAdapter(fm: FragmentManager, life: Lifecycle): FragmentStateAdapter(fm,life) {

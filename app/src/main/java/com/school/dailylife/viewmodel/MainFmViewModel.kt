@@ -21,6 +21,9 @@ class MainFmViewModel : BaseViewModel() {
             {
                 bannerData.value = it.banner
                 mainFmProductData.value = it.products
+            },
+            {
+                it.printStackTrace()
             })
             .lifeCycle()
     }

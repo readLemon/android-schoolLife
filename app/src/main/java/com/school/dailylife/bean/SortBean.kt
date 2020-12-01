@@ -1,5 +1,7 @@
 package com.school.dailylife.bean
 
+import com.google.gson.annotations.SerializedName
+
 /**
  * Created by chenyang
  * on 20-11-29
@@ -7,7 +9,7 @@ package com.school.dailylife.bean
 data class SortBean(
     val hotSearch: String,
     val messageNum: Int,
-    val sortTypeBeanList: List<SortTypeBean>
+    @SerializedName("sideList")val sortTypeBeanList: List<SortTypeBean>
 )
 
 

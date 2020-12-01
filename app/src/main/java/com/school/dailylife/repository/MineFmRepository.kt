@@ -20,7 +20,7 @@ class MineFmRepository : BaseRepository<MineFmService>() {
             service.getMineData(
                 CurrentUser.getCurrentUser().token
             )
-        ).map(JsonWrapperFunc<MineFmBean>())
+        ).map(JsonWrapperFunc())
 
 
     }

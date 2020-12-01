@@ -20,7 +20,7 @@ class MineFmViewModel : BaseViewModel() {
                 mineBaseData.value = it
             },
             {
-
+                it.printStackTrace()
             }
         )
             .lifeCycle()

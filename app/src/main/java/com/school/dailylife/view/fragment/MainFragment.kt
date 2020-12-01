@@ -83,7 +83,6 @@ class MainFragment : BaseFragment() {
                     .load(bean.userAvatar)
                     .into(civ_main_rv_avatar)
 
-                Log.e("eeeeeeeee", "....."+bean.userAvatar)
                 tv_main_rv_username.text = bean.username
             }
         )
