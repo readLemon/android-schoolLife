@@ -16,6 +16,8 @@ class SortFmViewModel : BaseViewModel() {
     private val repo by lazy { SortFmRepository() }
 
     val sortBean by lazy { MutableLiveData<SortBean>() }
+
+    val pos by lazy { MutableLiveData<Int>() }
 //    val sortBean = liveData<SortBean> {
 //        repo.getSort().subscribe({
 //            emit(it)

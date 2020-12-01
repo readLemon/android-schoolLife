@@ -44,7 +44,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_sort_slide"
             tools:itemCount="6"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/color_white"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_rv_sort_slide"
             app:layout_constraintStart_toStartOf="parent"
