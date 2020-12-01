@@ -18,12 +18,16 @@ import kotlinx.android.synthetic.main.item_rv_sort_slide.view.*
  * Created by chenyang
  * on 20-11-5
  */
-class SortFragment : BaseFragment() {
+class SortFragment : LazyFragment() {
     override val contentViewId: Int
         get() = R.layout.fragment_sort
 
 
-    override fun initView(view: View) {
+    override fun afterViewCteated(view: View) {
+
+    }
+
+    override fun initData() {
         fillFakdata()
     }
 

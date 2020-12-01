@@ -5,7 +5,7 @@ package com.school.dailylife.bean
  * on 20-11-24
  */
 data class MainDataBean(
-    val banner: List<BannerMainBean>,
+    val banner: List<String>,
     val products: List<MainProductBean>
 )
 

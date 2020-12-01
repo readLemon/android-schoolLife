@@ -3,7 +3,6 @@ package com.school.dailylife.repository
 import com.mredrock.runtogether.network.JsonWrapperFunc
 import com.school.dailylife.bean.SortBean
 import com.school.dailylife.net.service.SortFmService
-import com.school.dailylife.util.CurrentUser
 import io.reactivex.Observable
 
 /**
@@ -17,7 +16,7 @@ class SortFmRepository : BaseRepository<SortFmService>() {
 
 
     fun getSort(): Observable<SortBean> {
-        return observable(service.getSort(CurrentUser.getCurrentUser().token))
+        return observable(service.getSort())
             .map(JsonWrapperFunc())
     }
 

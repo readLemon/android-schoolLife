@@ -18,8 +18,7 @@ class MineFmRepository : BaseRepository<MineFmService>() {
 
         return observable(
             service.getMineData(
-                CurrentUser.getCurrentUser().username
-                , CurrentUser.getCurrentUser().psw
+                CurrentUser.getCurrentUser().token
             )
         ).map(JsonWrapperFunc<MineFmBean>())
 

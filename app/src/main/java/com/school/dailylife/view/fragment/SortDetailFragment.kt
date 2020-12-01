@@ -17,7 +17,7 @@ class SortDetailFragment : BaseFragment() {
         get() = R.layout.fragment_sort_detail
 
 
-    override fun initView(view: View) {
+    override fun afterViewCteated(view: View) {
         val data = mutableListOf<SortDetailBean>()
         for (i in 1..15) {
             data.add(SortDetailBean(0,"食品","https://pic4.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_1440w.jpg"));

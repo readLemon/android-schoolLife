@@ -13,7 +13,7 @@ class MainFmViewModel : BaseViewModel() {
 
     private val repo by lazy { MainFmRepository() }
 
-    val bannerData by lazy { MutableLiveData<List<BannerMainBean>>() }
+    val bannerData by lazy { MutableLiveData<List<String>>() }
     val mainFmProductData by lazy { MutableLiveData<List<MainProductBean>>() }
 
     fun getMainData() {

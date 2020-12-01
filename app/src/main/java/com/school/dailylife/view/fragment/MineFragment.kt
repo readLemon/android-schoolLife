@@ -10,14 +10,18 @@ import kotlinx.android.synthetic.main.fragment_mine.*
  * Created by chenyang
  * on 20-11-5
  */
-class MineFragment : BaseFragment() {
+class MineFragment : LazyFragment() {
     override val contentViewId: Int
         get() = R.layout.fragment_mine
 
-    override fun initView(view: View) {
+    override fun afterViewCteated(view: View) {
         tv_fm_mine_goto_login.setOnClickListener {
             startActivity(Intent(requireContext(), LoginActivity::class.java))
             requireActivity().finish()
         }
+    }
+
+    override fun initData() {
+
     }
 }

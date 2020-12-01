@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity()
                 supportFragmentManager,
                 this.lifecycle
             )
+        vp_main.offscreenPageLimit = 3 //预先创建出所有的Fragment，防止切换造成的频繁销毁和创建
         vp_main.registerOnPageChangeCallback(object : OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)

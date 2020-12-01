@@ -2,29 +2,34 @@ package com.school.dailylife.view.activity
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
-import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.Animation
+import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.school.dailylife.R
+import com.school.dailylife.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity() {
     override val contentViewId: Int
         get() = R.layout.activity_login
 
+    private val viewmodel by viewModels<UserViewModel>()
+
     override fun initView(savedInstanceState: Bundle?) {
 
         setLoginAnimation()
+        setObserVer()
 
         btn_login.setOnClickListener {
-            val username = et_login_username.text
-            val psw = et_login_psw.text
+            val username = et_login_username.text.toString()
+            val psw = et_login_psw.text.toString()
 
-
+            viewmodel.login(username, psw)
             lav_login.visibility = View.VISIBLE
             lav_login.playAnimation()
         }
@@ -33,6 +38,23 @@ class LoginActivity : BaseActivity() {
         tv_login_go_to_register.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
         }
+    }
+
+    private fun setObserVer() {
+        viewmodel.isLoginSuccess.observe(this@LoginActivity, {
+            if (it) {
+                Log.e(TAG,"登录成功")
+                if (lav_login.isAnimating) {
+                    lav_login.cancelAnimation()
+                    goToMainActivity()
+                }
+            }
+        })
+    }
+
+    private fun goToMainActivity () {
+        startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+        finish()
     }
 
     @SuppressLint("WrongConstant")
@@ -44,8 +66,7 @@ class LoginActivity : BaseActivity() {
             repeatMode = Animation.REVERSE
             addAnimatorListener(object : AnimatorListenerAdapter() {
                 override fun onAnimationEnd(animation: Animator?) {
-                    startActivity(Intent(this@LoginActivity, MainActivity::class.java))
-                    finish()
+                    goToMainActivity()
                 }
 
                 override fun onAnimationStart(animation: Animator?, isReverse: Boolean) {
@@ -67,5 +88,9 @@ class LoginActivity : BaseActivity() {
         super.onDestroy()
         lav_login.cancelAnimation()
 
+    }
+
+    companion object{
+        val TAG = "LoginActivity"
     }
 }

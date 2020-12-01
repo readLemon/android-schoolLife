@@ -16,5 +16,9 @@ object CurrentUser {
         return this.user!!
     }
 
+    fun setCurrentUser(user: User) {
+        this.user = user
+    }
+
 
 }

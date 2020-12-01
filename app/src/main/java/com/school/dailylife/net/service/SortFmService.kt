@@ -14,9 +14,6 @@ import retrofit2.http.Header
  */
 interface SortFmService {
 
-    @FormUrlEncoded
     @GET(Api.sortFmData)
-    fun getSort(
-        @Header("token") token: String
-    ): Observable<JsonWrapper<SortBean>>
+    fun getSort(): Observable<JsonWrapper<SortBean>>
 }

@@ -5,11 +5,11 @@ package com.school.dailylife.bean
  * on 20-11-8
  */
 class MainProductBean(
-    val pid: Int,
-    val title: String,
-    val price: Float,
+    val userAvatar: String,
+    val username: String,
     val productPic: String,
+    val price: Float,
+    val title: String,
     val uid: Int,
-    val userAvatarPic: String,
-    val username: String
+    val pid: Int
 )

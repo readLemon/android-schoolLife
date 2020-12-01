@@ -1,6 +1,5 @@
 package com.school.dailylife.view.fragment
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,10 +22,12 @@ abstract class BaseFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initView(view)
+        afterViewCteated(view)
     }
 
-    open fun initView(view: View) = Unit
+//    open fun initView(view: View) = Unit
+
+    open fun afterViewCteated(view: View) = Unit
 
     fun doNothing(event: Any) = Unit
 

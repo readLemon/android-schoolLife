@@ -7,6 +7,7 @@ import io.reactivex.Observable
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.Header
 
 /**
  * Created by chenyang
@@ -15,11 +16,9 @@ import retrofit2.http.GET
 interface MainFmService {
 
 
-    @FormUrlEncoded
     @GET(Api.mainFmData)
     fun getMainData(
-        @Field("username") username: String,
-        @Field("password") psw: String
+        @Header("token") token: String
     ): Observable<JsonWrapper<MainDataBean>>
 
 

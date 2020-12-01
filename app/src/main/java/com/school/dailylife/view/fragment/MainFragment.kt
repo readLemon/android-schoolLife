@@ -1,14 +1,16 @@
 package com.school.dailylife.view.fragment
 
+import android.util.Log
 import android.view.View
+import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.school.dailylife.R
-import com.school.dailylife.bean.BannerMainBean
 import com.school.dailylife.bean.MainProductBean
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
+import com.school.dailylife.viewmodel.MainFmViewModel
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
 import com.youth.banner.indicator.CircleIndicator
@@ -24,64 +26,50 @@ class MainFragment : BaseFragment() {
     override val contentViewId: Int
         get() = R.layout.fragment_main
 
-    private val datas = arrayListOf<MainProductBean>()
+    private val viewmodel by viewModels<MainFmViewModel>()
 
 
-    override fun initView(view: View) {
+    override fun afterViewCteated(view: View) {
+        viewmodel.getMainData()
         initProductRecyclerview()
         initBanner()
     }
 
+
     private fun initBanner() {
-        val bannerDatas = listOf<BannerMainBean>(
-            BannerMainBean("https://pic4.zhimg.com/v2-3be05963f5f3753a8cb75b6692154d4a_1440w.jpg?source=172ae18b")
-            , BannerMainBean("https://image.lnstzy.cn/aoaodcom/2019-07/23/201907230623232853.jpg")
-            , BannerMainBean("https://www.zhifure.com/upload/images/2017/9/417140648.jpg")
-            , BannerMainBean("https://img95.699pic.com/photo/40007/4125.jpg_wh300.jpg")
-        )
+        val bannerDatas = mutableListOf<String>()
+        val mAdapter = object : BannerImageAdapter<String>(bannerDatas) {
+            override fun onBindView(
+                holder: BannerImageHolder,
+                data: String,
+                position: Int,
+                size: Int
+            ) {
+                Glide.with(holder.itemView)
+                    .load(data)
+                    .apply(RequestOptions.bitmapTransform(RoundedCorners(30)))
+                    .into(holder.imageView)
+            }
+        }
         banner_main.apply {
             addBannerLifecycleObserver(this@MainFragment)
-            adapter = object : BannerImageAdapter<BannerMainBean>(bannerDatas) {
-                override fun onBindView(
-                    holder: BannerImageHolder,
-                    data: BannerMainBean,
-                    position: Int,
-                    size: Int
-                ) {
-                    Glide.with(holder.itemView)
-                        .load(data.picUrl)
-                        .apply(RequestOptions.bitmapTransform(RoundedCorners(30)))
-                        .into(holder.imageView)
-                }
-            }
+            adapter = mAdapter
             setIndicator(CircleIndicator(requireContext()))
             setPageTransformer(DepthPageTransformer())
         }
 
+        viewmodel.bannerData.observe({
+            if (!it.isNullOrEmpty()) {
+                bannerDatas.clear()
+                bannerDatas.addAll(it)
+                mAdapter.notifyDataSetChanged()
+            }
+        })
     }
 
 
     private fun initProductRecyclerview() {
-
-        for (i in 1..10) {
-            datas.add(
-                MainProductBean(
-                    0
-                    ,
-                    "商品名字"
-                    ,
-                    200F
-                    ,
-                    "https://img95.699pic.com/photo/40100/6015.jpg_wh300.jpg"
-                    ,
-                    0
-                    ,
-                    "https://pic4.zhimg.com/v2-4bba972a094eb1bdc8cbbc55e2bd4ddf_1440w.jpg?source=172ae18b"
-                    ,
-                    "橙子"
-                )
-            )
-        }
+        val datas = mutableListOf<MainProductBean>()
 
         val adapter = CommonRecyclerAdapter(
             R.layout.item_rv_main,
@@ -92,13 +80,22 @@ class MainFragment : BaseFragment() {
                 tv_main_rv_price.text = "$${bean.price}"
 
                 Glide.with(this@MainFragment)
-                    .load(bean.userAvatarPic)
+                    .load(bean.userAvatar)
                     .into(civ_main_rv_avatar)
+
+                Log.e("eeeeeeeee", "....."+bean.userAvatar)
                 tv_main_rv_username.text = bean.username
             }
         )
         rv_main.adapter = adapter
+
+        viewmodel.mainFmProductData.observe({
+            if (!it.isNullOrEmpty()) {
+                datas.clear()
+                datas.addAll(it)
+                adapter.notifyDataSetChanged()
+            }
+        })
     }
 
 }
-

@@ -2,6 +2,7 @@ package com.school.dailylife.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.school.dailylife.repository.UserRepository
+import com.school.dailylife.util.CurrentUser
 
 /**
  * Created by chenyang
@@ -9,15 +10,16 @@ import com.school.dailylife.repository.UserRepository
  */
 class UserViewModel: BaseViewModel() {
 
-    val repo by lazy { UserRepository() }
+    private val repo by lazy { UserRepository() }
 
+//    val isLoginSuccess = MutableLiveData(false)
     val isLoginSuccess = MutableLiveData(false)
     val isRegisterSuccess = MutableLiveData(false)
 
     fun login(username: String, psw: String) {
         repo.login(username, psw).subscribe({
-
-       isLoginSuccess.value = true
+            CurrentUser.setCurrentUser(it)
+            isLoginSuccess.value = true
         },{
             isLoginSuccess.value = false
         }).lifeCycle()
