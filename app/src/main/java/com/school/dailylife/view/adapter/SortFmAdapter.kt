@@ -1,7 +1,6 @@
 package com.school.dailylife.view.adapter
 
 import android.os.Build
-import android.util.Log
 import android.view.View
 import androidx.annotation.RequiresApi
 import com.mredrock.runtogether.App
@@ -14,7 +13,7 @@ import com.school.dailylife.R
 class SortFmAdapter<T>(
     val layoutId: Int,
     val datas: List<T>,
-    val tellChildFragment: (Int) ->Unit,
+    val tellChildFragment: (Int) -> Unit,
     val bindHolder: View.(T) -> Unit = {}
 ) : CommonRecyclerAdapter<T>(layoutId, datas, bindHolder) {
 

@@ -1,9 +1,9 @@
 package com.school.dailylife.net.service
 
-import com.school.dailylife.net.BaseJson
-import com.school.dailylife.net.JsonWrapper
 import com.school.dailylife.bean.User
 import com.school.dailylife.config.Api
+import com.school.dailylife.net.BaseJson
+import com.school.dailylife.net.JsonWrapper
 import io.reactivex.Observable
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded

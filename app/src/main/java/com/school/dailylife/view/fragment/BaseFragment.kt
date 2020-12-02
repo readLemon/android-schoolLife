@@ -17,7 +17,11 @@ abstract class BaseFragment : Fragment() {
     @get:LayoutRes
     abstract val contentViewId: Int
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return LayoutInflater.from(context).inflate(contentViewId, container, false)
     }
 
@@ -31,10 +35,12 @@ abstract class BaseFragment : Fragment() {
 
     fun doNothing(event: Any) = Unit
 
-    inline fun <T> LiveData<T>.observe(crossinline onChange: (T?) -> Unit) = observe(this@BaseFragment, Observer { onChange(it) })
+    inline fun <T> LiveData<T>.observe(crossinline onChange: (T?) -> Unit) =
+        observe(this@BaseFragment, Observer { onChange(it) })
 
-    inline fun <T> LiveData<T>.observeNotNull(crossinline onChange: (T) -> Unit) = observe(this@BaseFragment, Observer {
-        it ?: return@Observer
-        onChange(it)
-    })
+    inline fun <T> LiveData<T>.observeNotNull(crossinline onChange: (T) -> Unit) =
+        observe(this@BaseFragment, Observer {
+            it ?: return@Observer
+            onChange(it)
+        })
 }

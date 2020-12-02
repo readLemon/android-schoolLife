@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName
 data class SortBean(
     val hotSearch: String,
     val messageNum: Int,
-    @SerializedName("sideList")val sortTypeBeanList: List<SortTypeBean>
+    @SerializedName("sideList") val sortTypeBeanList: List<SortTypeBean>
 )
 
 

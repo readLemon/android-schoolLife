@@ -1,23 +1,22 @@
 package com.school.dailylife.view.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2.*
+import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.school.dailylife.R
 import com.school.dailylife.view.fragment.BaseFragment
 import com.school.dailylife.view.fragment.MainFragment
-import com.school.dailylife.view.fragment.SortFragment
 import com.school.dailylife.view.fragment.MineFragment
+import com.school.dailylife.view.fragment.SortFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity()
-    , BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private var preNavPos = -1
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,13 +33,14 @@ class MainActivity : AppCompatActivity()
         vp_main.registerOnPageChangeCallback(object : OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
-                    nav_main.menu.getItem(position).setChecked(true)
+                nav_main.menu.getItem(position).setChecked(true)
             }
         })
     }
 
 
-    inner class MyViewPagerAdapter(fm: FragmentManager, life: Lifecycle): FragmentStateAdapter(fm,life) {
+    inner class MyViewPagerAdapter(fm: FragmentManager, life: Lifecycle) :
+        FragmentStateAdapter(fm, life) {
 
         val mFragmentClass = arrayOf(
             MainFragment::class.java,
@@ -55,11 +55,11 @@ class MainActivity : AppCompatActivity()
             val fmClass = mFragmentClass[position]
             val tarFragment = mFragmentInstance[fmClass]
 
-            return if(tarFragment == null) {
+            return if (tarFragment == null) {
                 val mFragment = fmClass.newInstance()
                 mFragmentInstance[fmClass] = mFragment
                 mFragment
-            }else {
+            } else {
                 tarFragment
             }
         }
@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity()
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         var pos = 0
 
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.nav_main_graph -> pos = 0
 
             R.id.nav_sort -> pos = 1

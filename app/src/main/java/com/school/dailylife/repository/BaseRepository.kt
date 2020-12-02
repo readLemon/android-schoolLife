@@ -10,12 +10,9 @@ import io.reactivex.schedulers.Schedulers
  * on 20-11-23
  */
 abstract class BaseRepository<T> {
-    abstract val serviceClass : Class<T>
+    abstract val serviceClass: Class<T>
 
     val service = RetrofitManager.getInstance().create(serviceClass)
-
-
-
 
 
     fun <T> observable(observable: Observable<T>) = observable.subscribeOn(Schedulers.io())

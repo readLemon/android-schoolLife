@@ -54,7 +54,6 @@ class SortFragment : LazyFragment() {
             })
 
         rv_sort_slide.adapter = adapter
-        vp_sort_detail.adapter = MyViewPagerAdapter(childFragmentManager, this@SortFragment.lifecycle)
         viewmodel.sortBean.observe{
             if (it != null) {
                 data.clear()
@@ -65,34 +64,5 @@ class SortFragment : LazyFragment() {
 
     }
 
-    inner class MyViewPagerAdapter(fm: FragmentManager, life: Lifecycle): FragmentStateAdapter(fm,life) {
 
-        val mFragmentClass = arrayOf(
-            SortDetailFragment::class.java
-        )
-        val mFragmentInstance = HashMap<Class<out BaseFragment>, Fragment>();
-
-        override fun getItemCount() = mFragmentClass.size
-
-        override fun createFragment(position: Int): Fragment {
-//            val fmClass = mFragmentClass[position]
-//            val tarFragment = mFragmentInstance[fmClass]
-//
-//            return if(tarFragment == null) {
-//                val mFragment = fmClass.newInstance()
-//                mFragmentInstance[fmClass] = mFragment
-//                mFragment
-//            }else {
-//                tarFragment
-//            }
-            return if(mFragmentInstance[mFragmentClass[0]] == null) {
-                val tmp = mFragmentClass[0].newInstance()
-                mFragmentInstance[mFragmentClass[0]] = tmp
-                tmp
-            } else {
-                mFragmentInstance[mFragmentClass[0]]!!
-            }
-        }
-
-    }
 }

@@ -86,4 +86,7 @@ dependencies {
     //ktx
     implementation 'androidx.activity:activity-ktx:1.1.0'
     implementation 'androidx.fragment:fragment-ktx:1.2.5'
+
+    //permission
+    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
 }

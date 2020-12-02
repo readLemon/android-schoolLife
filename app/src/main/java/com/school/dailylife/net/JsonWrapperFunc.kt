@@ -1,9 +1,9 @@
 package com.mredrock.runtogether.network
 
 import android.util.Log
-import com.school.dailylife.net.JsonWrapper
 import com.school.dailylife.config.DEFAULT_FAULT_INFO
 import com.school.dailylife.net.Fault
+import com.school.dailylife.net.JsonWrapper
 import io.reactivex.functions.Function
 
 /**
@@ -18,7 +18,7 @@ class JsonWrapperFunc<T> : Function<JsonWrapper<T>, T> {
 
         if (t.data == null) {
             Log.d("JsonWrapperFunc", "the response data is null")
-            throw Fault(DEFAULT_FAULT_INFO,"the response data is null")
+            throw Fault(DEFAULT_FAULT_INFO, "the response data is null")
         }
 
         return t.data as T

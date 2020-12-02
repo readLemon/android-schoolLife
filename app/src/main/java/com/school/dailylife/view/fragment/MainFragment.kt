@@ -1,6 +1,5 @@
 package com.school.dailylife.view.fragment
 
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide

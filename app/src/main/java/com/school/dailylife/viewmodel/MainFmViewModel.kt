@@ -1,7 +1,6 @@
 package com.school.dailylife.viewmodel
 
 import androidx.lifecycle.MutableLiveData
-import com.school.dailylife.bean.BannerMainBean
 import com.school.dailylife.bean.MainProductBean
 import com.school.dailylife.repository.MainFmRepository
 

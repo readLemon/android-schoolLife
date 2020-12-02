@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide
  * on 20-11-27
  */
 
+
 fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, duration).show()
 }

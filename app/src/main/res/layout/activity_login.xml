@@ -98,6 +98,7 @@
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.textfield.TextInputLayout>
 
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_login_view_01"
         android:layout_width="wrap_content"
@@ -107,6 +108,19 @@
         app:layout_constraintStart_toStartOf="@+id/til_login_psw"
         app:layout_constraintTop_toBottomOf="@+id/til_login_psw" />
 
+
+    <CheckedTextView
+        android:id="@+id/ctv_need_remember_psw"
+        android:layout_marginStart="10dp"
+        android:text="记住密码"
+        android:checked="true"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/til_login_psw"
+        android:checkMark="?android:attr/listChoiceIndicatorMultiple"
+        app:layout_constraintTop_toTopOf="@+id/tv_login_view_01"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_login_view_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_login"

@@ -1,21 +1,18 @@
 package com.school.dailylife.view.fragment
 
-import android.os.Bundle
-import android.view.View
-
 /**
  * Created by chenyang
  * on 20-12-1
  */
-abstract class LazyFragment: BaseFragment() {
+abstract class LazyFragment : BaseFragment() {
 
     private var isFirstLoad = true
 
     override fun onResume() {
         super.onResume()
         if (isFirstLoad) {
-           initData()
-           initEvent()
+            initData()
+            initEvent()
             isFirstLoad = false
         }
     }

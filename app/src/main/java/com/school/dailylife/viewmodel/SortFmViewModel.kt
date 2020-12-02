@@ -1,9 +1,6 @@
 package com.school.dailylife.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.liveData
-import com.google.gson.Gson
 import com.school.dailylife.bean.SortBean
 import com.school.dailylife.repository.SortFmRepository
 
