@@ -89,4 +89,7 @@ dependencies {
 
     //permission
     implementation 'com.permissionx.guolindev:permissionx:1.4.0'
+
+    //图片选择器
+    implementation 'com.yuyh.imgsel:library:2.1.0'
 }

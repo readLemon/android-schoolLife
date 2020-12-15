@@ -15,7 +15,6 @@ import com.school.dailylife.R
 import com.school.dailylife.config.CORRENT_USER_ACCOUNT_NUM
 import com.school.dailylife.config.CORRENT_USER_PSW
 import com.school.dailylife.util.defaultSharedPrefrence
-import com.school.dailylife.util.editor
 import com.school.dailylife.util.toast
 import com.school.dailylife.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_login.*
@@ -27,15 +26,15 @@ class LoginActivity : BaseActivity() {
     private val viewmodel by viewModels<UserViewModel>()
 
     override fun beforeSetContentViewId(savedInstanceState: Bundle?) {
-//        PermissionX.init(this)
-//            .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//            .request { allGranted, grantedList, deniedList ->
-//                if (allGranted) {
-//                    this.toast("All permissions are granted")
-//                } else {
-//                    this.toast("These permissions are denied: $deniedList")
-//                }
-//            }
+        PermissionX.init(this)
+            .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+            .request { allGranted, grantedList, deniedList ->
+                if (allGranted) {
+                    this.toast("All permissions are granted")
+                } else {
+                    this.toast("These permissions are denied: $deniedList")
+                }
+            }
 
 
     }
@@ -78,6 +77,9 @@ class LoginActivity : BaseActivity() {
                     lav_login.cancelAnimation()
                     goToMainActivity()
                 }
+            } else {
+                lav_login.cancelAnimation()
+                this.toast("登陆失败")
             }
         })
     }

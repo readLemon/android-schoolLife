@@ -2,6 +2,7 @@ package com.school.dailylife.repository
 
 import com.mredrock.runtogether.network.JsonWrapperFunc
 import com.school.dailylife.bean.MineFmBean
+import com.school.dailylife.bean.SoledProductBean
 import com.school.dailylife.net.service.MineFmService
 import com.school.dailylife.util.CurrentUser
 import io.reactivex.Observable
@@ -21,7 +22,10 @@ class MineFmRepository : BaseRepository<MineFmService>() {
                 CurrentUser.getCurrentUser().token
             )
         ).map(JsonWrapperFunc())
+    }
 
-
+    fun getMyPubedProducts(): Observable<List<SoledProductBean>> {
+        return service.getMyPubedProducts(CurrentUser.getCurrentUser().token)
+            .map(JsonWrapperFunc())
     }
 }

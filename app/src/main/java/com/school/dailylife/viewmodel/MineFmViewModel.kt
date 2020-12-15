@@ -2,6 +2,7 @@ package com.school.dailylife.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.school.dailylife.bean.MineFmBean
+import com.school.dailylife.bean.SoledProductBean
 import com.school.dailylife.repository.MineFmRepository
 
 /**
@@ -14,10 +15,24 @@ class MineFmViewModel : BaseViewModel() {
 
     val mineBaseData by lazy { MutableLiveData<MineFmBean>() }
 
+    val soledBeans by lazy { MutableLiveData<List<SoledProductBean>>() }
+
     fun getMineData() {
         repo.getMineData().subscribe(
             {
                 mineBaseData.value = it
+            },
+            {
+                it.printStackTrace()
+            }
+        )
+            .lifeCycle()
+    }
+
+    fun getMyPubedProducts() {
+        repo.getMyPubedProducts().subscribe(
+            {
+                soledBeans.value = it
             },
             {
                 it.printStackTrace()

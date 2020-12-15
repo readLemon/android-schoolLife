@@ -1,0 +1,21 @@
+{
+  "info": "请求成功",
+  "status": 200,
+  "data": {
+    "product": [
+      {
+        "title": "我是商品名字",
+        "description": "我是商品描述",
+        "price": 111,
+        "soled": false          //是否已经卖出
+
+      },
+      {
+        "title": "我是商品名字",
+        "description": "我是商品描述",
+        "price": 111,
+        "soled": false
+      }
+    ]
+  }
+}

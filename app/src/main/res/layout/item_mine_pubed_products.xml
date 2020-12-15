@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_marginBottom="15dp"
+    android:background="@color/colorPrimaryDark"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_dialog_show_pubed_title"
+        android:text="我是一个title"
+        android:textSize="16sp"
+        android:textColor="@color/color_white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_dialog_mine_pubed_desc"
+        android:textSize="15sp"
+        android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxx"
+        android:layout_marginEnd="100dp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/color_white"
+        app:layout_constraintTop_toBottomOf="@id/tv_dialog_show_pubed_title"
+        app:layout_constraintStart_toStartOf="@+id/tv_dialog_show_pubed_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_dialog_pubed_price"
+        android:layout_marginTop="5dp"
+        android:text="价格：$111"
+        android:textSize="15sp"
+        android:textColor="@color/color_white"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dialog_mine_pubed_desc"
+        app:layout_constraintStart_toStartOf="@id/tv_dialog_show_pubed_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_dialog_product_isSoled"
+        android:text="已买出"
+        android:textColor="@color/color_white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

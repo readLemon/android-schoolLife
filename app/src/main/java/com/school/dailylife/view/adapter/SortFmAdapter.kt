@@ -25,7 +25,7 @@ class SortFmAdapter<T>(
         super.onBindViewHolder(holder, position)
         if (position == 0 && isFirst) {
             isFirst = false
-            holder.itemView.setBackgroundColor(App.context.getColor(R.color.colorPrimary))
+            holder.itemView.setBackgroundColor(App.context.getColor(R.color.color_white))
             preItemClickView = holder.itemView
             tellChildFragment(position)
         }
@@ -33,9 +33,9 @@ class SortFmAdapter<T>(
         holder.itemView.setOnClickListener {
             if (preItemClickView != it) {
                 if (preItemClickView != null) {
-                    preItemClickView?.setBackgroundColor(it.context.getColor(R.color.color_white))
+                    preItemClickView?.setBackgroundColor(it.context.getColor(R.color.colorPrimary))
                 }
-                it.setBackgroundColor(it.context.getColor(R.color.colorPrimary))
+                it.setBackgroundColor(it.context.getColor(R.color.color_white))
                 preItemClickView = it
                 tellChildFragment(position)
             }

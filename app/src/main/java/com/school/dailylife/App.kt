@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
+import com.bumptech.glide.Glide
+import com.yuyh.library.imgsel.ISNav
 
 class App : Application(), ViewModelStoreOwner {
     private lateinit var mAppViewModelStore: ViewModelStore
@@ -19,6 +21,11 @@ class App : Application(), ViewModelStoreOwner {
         context = this
         mAppViewModelStore = ViewModelStore()
         mFactory = ViewModelProvider.AndroidViewModelFactory.getInstance(this)
+
+        ISNav.getInstance().init { context, path, imageView ->
+            Glide.with(context).load(path)
+                .into(imageView)
+        }
     }
 
     companion object {

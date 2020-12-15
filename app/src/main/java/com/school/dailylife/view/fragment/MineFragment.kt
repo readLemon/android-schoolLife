@@ -7,6 +7,7 @@ import com.school.dailylife.R
 import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.activity.LoginActivity
+import com.school.dailylife.view.activity.SettingActivity
 import com.school.dailylife.viewmodel.MineFmViewModel
 import kotlinx.android.synthetic.main.fragment_mine.*
 
@@ -46,6 +47,19 @@ class MineFragment : LazyFragment() {
                 tv_fm_mine_solding_num.setText("${it.soldingNum}\n在售商品数")
                 tv_fm_mine_soled_num.setText("${it.soledNum}\n已售商品")
             }
+        }
+
+        iv_mine_setting.setOnClickListener {
+            startActivity(Intent(requireActivity(), SettingActivity::class.java))
+        }
+
+        iv_mine_pubed_product.setOnClickListener {
+//            viewmodel
+            viewmodel.soledBeans.observe({
+//                if (!it.isNullOrEmpty()) {
+//
+//                }
+            })
         }
 
     }

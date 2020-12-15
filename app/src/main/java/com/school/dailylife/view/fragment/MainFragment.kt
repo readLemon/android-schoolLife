@@ -1,5 +1,6 @@
 package com.school.dailylife.view.fragment
 
+import android.content.Intent
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -8,6 +9,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.school.dailylife.R
 import com.school.dailylife.bean.MainProductBean
 import com.school.dailylife.util.loadPic
+import com.school.dailylife.view.activity.PublishActivity
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
 import com.school.dailylife.viewmodel.MainFmViewModel
 import com.youth.banner.adapter.BannerImageAdapter
@@ -64,6 +66,11 @@ class MainFragment : BaseFragment() {
                 mAdapter.notifyDataSetChanged()
             }
         })
+
+
+        tv_main_publish.setOnClickListener {
+            startActivity(Intent(requireActivity(), PublishActivity::class.java))
+        }
     }
 
 

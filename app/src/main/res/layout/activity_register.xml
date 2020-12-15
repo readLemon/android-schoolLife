@@ -48,8 +48,9 @@
             android:layout_height="match_parent"
             android:background="@drawable/shape_login_username_bg"
             android:gravity="center"
-            android:hint="请输入用户名"
-            android:inputType="text"
+            android:hint="请输入用户ID"
+            android:maxLength="8"
+            android:inputType="number"
             android:maxLines="1"
             android:paddingStart="10dp"
             tools:ignore="RtlSymmetry" />

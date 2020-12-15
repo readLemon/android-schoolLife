@@ -17,4 +17,13 @@ object Api {
     const val mineFmData = "/getMyData"
 
     const val sortFmData = "/getSort"
+
+    //用于上传描述的图片
+    const val uploadDescPhotos = "/uploadDescPhotos"
+
+    //用于上传个人联系方式的图片
+    const val uploadContactWay = "/uploadContactWay"
+
+
+    const val getMyPubedProducts = "getMyPubedProducts"
 }
