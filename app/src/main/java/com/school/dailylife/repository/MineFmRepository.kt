@@ -24,7 +24,7 @@ class MineFmRepository : BaseRepository<MineFmService>() {
         ).map(JsonWrapperFunc())
     }
 
-    fun getMyPubedProducts(): Observable<List<SoledProductBean>> {
+    fun getMyPubedProducts(): Observable<SoledProductBean> {
         return service.getMyPubedProducts(CurrentUser.getCurrentUser().token)
             .map(JsonWrapperFunc())
     }

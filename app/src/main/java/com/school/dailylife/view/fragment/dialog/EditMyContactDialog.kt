@@ -6,43 +6,51 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.viewModels
 import com.mredrock.runtogether.App
 import com.school.dailylife.R
-import com.school.dailylife.bean.SoledProductBean
+import com.school.dailylife.config.NET_REQUEST_SUCCESSFULL
 import com.school.dailylife.util.ScreenSizeType
 import com.school.dailylife.util.getScreenHeight
 import com.school.dailylife.util.getScreenWidth
-import com.school.dailylife.view.adapter.CommonRecyclerAdapter
-import kotlinx.android.synthetic.main.dialog_show_my_pubed_product.*
-import kotlinx.android.synthetic.main.item_mine_pubed_products.view.*
+import com.school.dailylife.viewmodel.SettingViewModel
+import kotlinx.android.synthetic.main.dialog_edit_my_contact.*
 
 /**
  * Created by chenyang
  * on 20-12-15
  */
-class ShowMyPubedProductDialog(val dataBean: List<SoledProductBean.Product>) : DialogFragment() {
+class EditMyContactDialog() : DialogFragment() {
+
+    val viewmodel by viewModels<SettingViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.dialog_show_my_pubed_product, container, false)
+        return inflater.inflate(R.layout.dialog_edit_my_contact, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = CommonRecyclerAdapter(
-            R.layout.item_mine_pubed_products,
-            dataBean,
-            {
-                tv_dialog_show_pubed_title.text = it.title
-                tv_dialog_mine_pubed_desc.text = it.description
-                tv_dialog_pubed_price.text = "$${it.price}"
-                tv_dialog_product_isSoled.text = if (it.status == 1) "已卖出" else "在售"
-            }
-        )
-        rv_mine_soled_product.adapter = adapter
+        btn_dialog_contact_sure.setOnClickListener {
+            val phone = et_dialog_contact_way_phone.text.toString()
+            val qq = et_dialog_contact_way_qq.text.toString()
+            viewmodel.uploadContactWayPhoto(phone, qq)
+                .subscribe({
+                    if (it.status == NET_REQUEST_SUCCESSFULL) {
+                        Toast.makeText(requireContext(), "上传资料成功", Toast.LENGTH_SHORT).show()
+                        dismiss()
+                    }
+                }, {
+                    it.printStackTrace()
+                    Toast.makeText(requireContext(), "上传资料失败", Toast.LENGTH_SHORT).show()
+                    dismiss()
+                })
+        }
+
     }
 
 

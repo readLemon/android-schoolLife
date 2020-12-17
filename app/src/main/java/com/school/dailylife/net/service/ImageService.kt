@@ -3,7 +3,6 @@ package com.school.dailylife.net.service
 import com.school.dailylife.config.Api
 import com.school.dailylife.net.JsonWrapper
 import io.reactivex.Observable
-import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.*
 
@@ -19,12 +18,11 @@ interface ImageService {
     @Multipart
     @POST(Api.uploadDescPhotos)
     fun uploadDescPhotos(
+        @Field("title") title: String,
+        @Field("desc") desc: String,
         @PartMap map: Map<String, RequestBody>,
         @Header(Api.TOKEN_STR) token: String
     ): Observable<JsonWrapper<Any>>
-
-
-
 
 
 }

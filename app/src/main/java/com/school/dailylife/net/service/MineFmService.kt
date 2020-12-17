@@ -24,6 +24,6 @@ interface MineFmService {
     @GET(Api.getMyPubedProducts)
     fun getMyPubedProducts(
         @Header(Api.TOKEN_STR) token: String
-    ): Observable<JsonWrapper<List<SoledProductBean>>>
+    ): Observable<JsonWrapper<SoledProductBean>>
 
 }

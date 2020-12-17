@@ -15,7 +15,7 @@ class MineFmViewModel : BaseViewModel() {
 
     val mineBaseData by lazy { MutableLiveData<MineFmBean>() }
 
-    val soledBeans by lazy { MutableLiveData<List<SoledProductBean>>() }
+    val soledBeans by lazy { MutableLiveData<List<SoledProductBean.Product>>() }
 
     fun getMineData() {
         repo.getMineData().subscribe(
@@ -32,7 +32,7 @@ class MineFmViewModel : BaseViewModel() {
     fun getMyPubedProducts() {
         repo.getMyPubedProducts().subscribe(
             {
-                soledBeans.value = it
+                soledBeans.value = it.product
             },
             {
                 it.printStackTrace()

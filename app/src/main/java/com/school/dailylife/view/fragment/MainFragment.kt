@@ -29,7 +29,6 @@ class MainFragment : BaseFragment() {
 
     private val viewmodel by viewModels<MainFmViewModel>()
 
-
     override fun afterViewCteated(view: View) {
         viewmodel.getMainData()
         initProductRecyclerview()

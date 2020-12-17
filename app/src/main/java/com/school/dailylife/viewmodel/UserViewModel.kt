@@ -19,8 +19,8 @@ class UserViewModel : BaseViewModel() {
 
     private val repo by lazy { UserRepository() }
 
-    val isLoginSuccess = MutableLiveData(false)
-    val isRegisterSuccess = MutableLiveData(false)
+    val isLoginSuccess by lazy { MutableLiveData<Boolean>() }
+    val isRegisterSuccess by lazy { MutableLiveData<Boolean>() }
 
 
     fun login(username: String, psw: String, isRememberUser: Boolean) {

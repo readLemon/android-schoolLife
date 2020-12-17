@@ -27,7 +27,15 @@ class LoginActivity : BaseActivity() {
 
     override fun beforeSetContentViewId(savedInstanceState: Bundle?) {
         PermissionX.init(this)
-            .permissions(Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.CAMERA)
+            .permissions(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            .onExplainRequestReason { scope, deniedList ->
+                val message = "需要您同意以下权限才能正常使用"
+                scope.showRequestReasonDialog(deniedList, message, "确定", "取消")
+            }
             .request { allGranted, grantedList, deniedList ->
                 if (allGranted) {
                     this.toast("All permissions are granted")

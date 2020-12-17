@@ -4,10 +4,7 @@ import com.school.dailylife.config.Api
 import com.school.dailylife.net.JsonWrapper
 import io.reactivex.Observable
 import okhttp3.MultipartBody
-import retrofit2.http.Header
-import retrofit2.http.Multipart
-import retrofit2.http.POST
-import retrofit2.http.Part
+import retrofit2.http.*
 
 /**
  * Created by chenyang
@@ -18,6 +15,7 @@ interface SettingService {
     @POST(Api.uploadContactWay)
     fun uploadContactWay(
         @Header(Api.TOKEN_STR) token: String,
-        @Part part: MultipartBody.Part
+        @Field("phoneNum") phone: String,
+        @Field("qq") qq: String
     ): Observable<JsonWrapper<Any>>
 }

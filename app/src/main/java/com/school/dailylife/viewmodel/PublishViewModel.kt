@@ -14,10 +14,10 @@ import java.io.File
 class PublishViewModel : BaseViewModel() {
 
     private val repo by lazy { PublishRepository() }
-    private val isUploadPhotosSuccess by lazy { MutableLiveData<Boolean>() }
+    val isUploadProductSuccess by lazy { MutableLiveData<Boolean>() }
 
 
-    fun uploadDescPhotos(photoPathes: List<String>) {
+    fun uploadDescPhotos(title: String, desc: String, photoPathes: List<String>) {
 
         val map = HashMap<String, RequestBody>()
         for (path in photoPathes) {
@@ -26,11 +26,14 @@ class PublishViewModel : BaseViewModel() {
             map["filename=${file.name}"] = requestBody
         }
 
-        repo.uploadDescPhotos(map).subscribe(
+        repo.uploadDescPhotos(title, desc, map).subscribe(
             {
-                isUploadPhotosSuccess.value = (it.status == NET_REQUEST_SUCCESSFULL)
+                isUploadProductSuccess.value = (it.status == NET_REQUEST_SUCCESSFULL)
             },
-            { it.printStackTrace() }).lifeCycle()
+            {
+                it.printStackTrace()
+                isUploadProductSuccess.value = false
+            }).lifeCycle()
     }
 
 

@@ -2,6 +2,11 @@
   "info": "请求成功",
   "status": 200,
   "data": {
+    "pics": [
+      "xxxxxx",
+      "xxxxxx"
+    ],
+
     "product": [
       {
         "title": "我是商品名字",

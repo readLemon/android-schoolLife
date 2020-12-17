@@ -7,28 +7,28 @@
     android:orientation="vertical">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_dialog_pubed_left"
+        android:id="@+id/gl_dialog_contact_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.15" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_dialog_pubed_right"
+        android:id="@+id/gl_dialog_contact_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.85" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_dialog_pubed_top"
+        android:id="@+id/gl_dialog_contact_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/gl_dialog_pubed_bottom"
+        android:id="@+id/gl_dialog_contact_bottom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -37,10 +37,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_mine_soled_product"
         android:padding="5dp"
-        app:layout_constraintRight_toLeftOf="@+id/gl_dialog_pubed_right"
-        app:layout_constraintLeft_toRightOf="@+id/gl_dialog_pubed_left"
-        app:layout_constraintBottom_toBottomOf="@+id/gl_dialog_pubed_bottom"
-        app:layout_constraintTop_toTopOf="@+id/gl_dialog_pubed_top"
+        app:layout_constraintRight_toLeftOf="@+id/gl_dialog_contact_right"
+        app:layout_constraintLeft_toRightOf="@+id/gl_dialog_contact_left"
+        app:layout_constraintBottom_toBottomOf="@+id/gl_dialog_contact_bottom"
+        app:layout_constraintTop_toTopOf="@+id/gl_dialog_contact_top"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/shape_pubed_product_dialog_bg"

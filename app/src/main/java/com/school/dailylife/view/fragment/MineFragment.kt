@@ -8,6 +8,7 @@ import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.activity.LoginActivity
 import com.school.dailylife.view.activity.SettingActivity
+import com.school.dailylife.view.fragment.dialog.ShowMyPubedProductDialog
 import com.school.dailylife.viewmodel.MineFmViewModel
 import kotlinx.android.synthetic.main.fragment_mine.*
 
@@ -19,7 +20,7 @@ class MineFragment : LazyFragment() {
     override val contentViewId: Int
         get() = R.layout.fragment_mine
 
-    private val viewmodel by viewModels<MineFmViewModel>({ requireActivity() })
+    private val viewmodel by viewModels<MineFmViewModel>()
 
     override fun initData() {
         viewmodel.getMineData()
@@ -54,11 +55,13 @@ class MineFragment : LazyFragment() {
         }
 
         iv_mine_pubed_product.setOnClickListener {
-//            viewmodel
             viewmodel.soledBeans.observe({
-//                if (!it.isNullOrEmpty()) {
-//
-//                }
+                if (!it.isNullOrEmpty()) {
+                    ShowMyPubedProductDialog(it).show(
+                        childFragmentManager,
+                        "ShowMyPubedProductDialog"
+                    )
+                }
             })
         }
 
