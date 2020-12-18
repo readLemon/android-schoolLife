@@ -16,12 +16,16 @@ class PublishRepository : BaseRepository<ImageService>() {
 
 
     fun uploadDescPhotos(
+        typeId: Int,
+        categoryId: Int,
         title: String,
         desc: String,
         map: Map<String, RequestBody>
     ): Observable<JsonWrapper<Any>> {
         return observable(
             service.uploadDescPhotos(
+                typeId,
+                categoryId,
                 title,
                 desc,
                 map,

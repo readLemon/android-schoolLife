@@ -43,6 +43,11 @@ class ShowMyPubedProductDialog(val dataBean: List<SoledProductBean.Product>) : D
             }
         )
         rv_mine_soled_product.adapter = adapter
+
+        iv_close_pubed_dialog.setOnClickListener {
+            dismiss()
+        }
+
     }
 
 
@@ -50,6 +55,7 @@ class ShowMyPubedProductDialog(val dataBean: List<SoledProductBean.Product>) : D
     override fun onStart() {
         super.onStart()
         isCancelable = true
+        dialog?.setCanceledOnTouchOutside(true)
         requireActivity().windowManager.defaultDisplay.getMetrics(DisplayMetrics())
         dialog?.window?.setLayout(
             App.context.getScreenWidth(), App.context.getScreenHeight(

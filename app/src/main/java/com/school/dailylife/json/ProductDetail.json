@@ -1,0 +1,37 @@
+{
+  "info": "请求成功",
+  "status": 200,
+  "data": {
+    "productPropertys": [
+      {
+        "propertyName": "title",
+        "propertyValue": "我是商品名字"
+      },
+      {
+        "propertyName": "price",
+        "propertyValue": "100.00"
+      },
+      {
+        "propertyName": "type",
+        "propertyValue": "男装"
+      },
+      {
+        "propertyName": "category",
+        "propertyValue": "牛仔裤"
+      }
+    ],
+    "ownerContacways": [
+      {
+        "name": "qq",
+        "value": "xxxxxx"
+      },{
+        "name": "tel",
+        "value": "xxxxxx"
+      }
+    ],
+    "pics": [
+      "xxxxxxx",
+      "xxxxxxxxx"
+    ]
+  }
+}

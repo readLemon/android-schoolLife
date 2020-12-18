@@ -13,6 +13,9 @@ import com.yuyh.library.imgsel.config.ISListConfig
  * on 20-12-17
  */
 
+//商品的两个属性
+val typeId = mapOf("牛仔裤" to 2)
+val categoryId = mapOf("男装" to 1)
 
 fun checkStoragePermission(activity: FragmentActivity) {
     PermissionX.init(activity)

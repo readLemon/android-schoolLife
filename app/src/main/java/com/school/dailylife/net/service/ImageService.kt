@@ -18,6 +18,8 @@ interface ImageService {
     @Multipart
     @POST(Api.uploadDescPhotos)
     fun uploadDescPhotos(
+        @Field("type_id") typeId: Int,
+        @Field("category_id") categoryId: Int,
         @Field("title") title: String,
         @Field("desc") desc: String,
         @PartMap map: Map<String, RequestBody>,

@@ -10,7 +10,7 @@ data class SoledProductBean(
 ) {
     data class Product(
         val description: String,
-        val price: Int,
+        val price: Float,
         val status: Int,
         val title: String
     )

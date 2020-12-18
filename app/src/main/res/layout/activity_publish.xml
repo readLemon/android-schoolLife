@@ -18,8 +18,8 @@
             android:id="@+id/iv_pub_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
             android:layout_marginStart="10dp"
+            android:padding="10dp"
             android:src="@drawable/ic_baseline_arrow_back_ios_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -41,10 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginEnd="10dp"
+            android:gravity="center"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             android:text="发布"
-            android:gravity="center"
             android:textColor="@color/colorPrimary"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -54,30 +54,60 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pub_title"
-        android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@+id/cl_pub_bar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="@+id/til_pub_desc"
         app:layout_constraintStart_toStartOf="@+id/til_pub_desc"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content">
+        app:layout_constraintTop_toBottomOf="@+id/cl_pub_bar">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_pubing_product_title"
-            android:hint="请在这里输入商品名字(10字内)"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_pub_et_bg"
             android:gravity="center"
-            android:maxLines="1"
+            android:hint="请在这里输入商品名字(10字内)"
             android:maxLength="10"
-            android:textSize="15sp"
+            android:maxLines="1"
             android:paddingStart="5dp"
             android:paddingEnd="5dp"
-            android:background="@drawable/shape_pub_et_bg"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"/>
+            android:textSize="15sp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_pubing_type_id"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:text="typeId"
+        android:gravity="center"
+        android:textSize="15sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/shape_pub_et_bg"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pubing_catagory_id"
+        app:layout_constraintStart_toStartOf="@+id/til_pub_desc"
+        app:layout_constraintTop_toBottomOf="@+id/til_pub_title" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_pubing_catagory_id"
+        android:text="categoryId"
+        android:textSize="15sp"
+        android:gravity="center"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/shape_pub_et_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_pubing_type_id"
+        app:layout_constraintEnd_toEndOf="@+id/til_pub_desc"
+        app:layout_constraintStart_toEndOf="@+id/tv_pubing_type_id"
+        app:layout_constraintTop_toTopOf="@+id/tv_pubing_type_id" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_pub_desc"
@@ -89,7 +119,7 @@
         android:background="@drawable/shape_pub_et_bg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_pub_title">
+        app:layout_constraintTop_toBottomOf="@+id/tv_pubing_type_id">
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_pub_pro_desc"
@@ -109,29 +139,28 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/iv_pub_add_image"
-        android:src="@drawable/ic_pub_add_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/shape_pub_et_bg"
-        app:layout_constraintTop_toBottomOf="@+id/til_pub_desc"
+        android:src="@drawable/ic_pub_add_image"
         app:layout_constraintStart_toStartOf="@+id/til_pub_desc"
-        android:layout_width="80dp"
-        android:layout_height="80dp" />
+        app:layout_constraintTop_toBottomOf="@+id/til_pub_desc" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_pubing_show_selected_pic"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginBottom="10dp"
-        app:spanCount="2"
         android:visibility="gone"
-        tools:itemCount="10"
-        tools:listitem="@layout/item_pubing_selected_pic"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_pub_desc"
         app:layout_constraintEnd_toEndOf="@id/til_pub_desc"
         app:layout_constraintStart_toStartOf="@+id/til_pub_desc"
-        android:layout_width="0dp"
-        android:layout_height="0dp"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/til_pub_desc"
+        app:spanCount="2"
+        tools:itemCount="10"
+        tools:listitem="@layout/item_pubing_selected_pic" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

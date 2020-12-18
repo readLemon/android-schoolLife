@@ -17,7 +17,13 @@ class PublishViewModel : BaseViewModel() {
     val isUploadProductSuccess by lazy { MutableLiveData<Boolean>() }
 
 
-    fun uploadDescPhotos(title: String, desc: String, photoPathes: List<String>) {
+    fun uploadDescPhotos(
+        typeId: Int,
+        categoryId: Int,
+        title: String,
+        desc: String,
+        photoPathes: List<String>
+    ) {
 
         val map = HashMap<String, RequestBody>()
         for (path in photoPathes) {
@@ -26,7 +32,7 @@ class PublishViewModel : BaseViewModel() {
             map["filename=${file.name}"] = requestBody
         }
 
-        repo.uploadDescPhotos(title, desc, map).subscribe(
+        repo.uploadDescPhotos(typeId, categoryId, title, desc, map).subscribe(
             {
                 isUploadProductSuccess.value = (it.status == NET_REQUEST_SUCCESSFULL)
             },

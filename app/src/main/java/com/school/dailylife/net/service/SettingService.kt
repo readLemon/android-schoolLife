@@ -15,7 +15,7 @@ interface SettingService {
     @POST(Api.uploadContactWay)
     fun uploadContactWay(
         @Header(Api.TOKEN_STR) token: String,
-        @Field("phoneNum") phone: String,
+        @Field("tel") phone: String,
         @Field("qq") qq: String
     ): Observable<JsonWrapper<Any>>
 }

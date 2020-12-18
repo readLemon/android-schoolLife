@@ -26,4 +26,8 @@ object Api {
 
 
     const val getMyPubedProducts = "getMyPubedProducts"
+
+    const val getProductDetail = "/getProductDetail"
+
+
 }

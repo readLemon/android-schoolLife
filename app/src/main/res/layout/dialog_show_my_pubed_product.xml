@@ -11,14 +11,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_dialog_contact_right"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_dialog_contact_top"
@@ -47,5 +47,19 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="10"
         tools:listitem="@layout/item_mine_pubed_products" />
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_close_pubed_dialog"
+        android:src="@drawable/ic_pubed_close_dialog"
+        android:rotation="45"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/gl_dialog_contact_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_contact_left"
+        app:layout_constraintTop_toBottomOf="@+id/gl_dialog_contact_bottom"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

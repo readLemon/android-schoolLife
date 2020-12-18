@@ -7,10 +7,7 @@ import androidx.activity.viewModels
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.school.dailylife.R
-import com.school.dailylife.config.REQUEST_CAMERA_CODE
-import com.school.dailylife.config.REQUEST_PHOTO_LIST_CODE
-import com.school.dailylife.config.checkStoragePermission
-import com.school.dailylife.config.config
+import com.school.dailylife.config.*
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.util.toast
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
@@ -28,6 +25,7 @@ class PublishActivity : BaseActivity(), View.OnClickListener {
     private val pathList by lazy { mutableListOf<String>() }
     private val viewmodel by viewModels<PublishViewModel>()
     private var dialog: DialogFragment? = null
+
 
     override fun initView(savedInstanceState: Bundle?) {
 
@@ -73,7 +71,13 @@ class PublishActivity : BaseActivity(), View.OnClickListener {
                     toast("商品描述不能为空")
                     return
                 }
-                viewmodel.uploadDescPhotos(title, desc, pathList)
+                viewmodel.uploadDescPhotos(
+                    typeId["男装"] ?: 1,
+                    categoryId["牛仔裤"] ?: 2,
+                    title,
+                    desc,
+                    pathList
+                )
                 dialog = WaitDialog()
                 dialog?.show(supportFragmentManager, "tag")
             }
