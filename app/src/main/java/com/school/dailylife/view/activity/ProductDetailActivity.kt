@@ -70,7 +70,7 @@ class ProductDetailActivity : BaseActivity() {
             R.layout.item_pubing_selected_pic,
             productPics,
             {
-                iv_pubing_selected_pic.loadPic(it)
+                this.iv_pubing_selected_pic.loadPic(it)
             }
         )
 

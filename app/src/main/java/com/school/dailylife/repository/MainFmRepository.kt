@@ -18,7 +18,8 @@ class MainFmRepository : BaseRepository<MainFmService>() {
     fun getMainFmData(): Observable<MainDataBean> {
         return observable(
             service.getMainData(
-                CurrentUser.getCurrentUser().token
+//                CurrentUser.getCurrentUser().token
+            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxIiwiaWF0IjoxNjA2ODAyODE5fQ.l4L7lIr3Yg5na2pCsY15ggoUxEzfgLcGnel87nT6h7I"
             )
         ).map(JsonWrapperFunc())
     }

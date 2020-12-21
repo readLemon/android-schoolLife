@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_contact_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_contact_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_contact_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_contact_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_choose_product_id"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        tools:listitem="@layout/item_rv_choose_product_id"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/color_white"
+        app:layout_constraintBottom_toTopOf="@+id/gl_dialog_contact_bottom"
+        app:layout_constraintEnd_toStartOf="@+id/gl_dialog_contact_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_contact_left"
+        app:layout_constraintTop_toTopOf="@+id/gl_dialog_contact_top"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

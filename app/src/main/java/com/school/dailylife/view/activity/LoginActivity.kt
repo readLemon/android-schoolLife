@@ -12,8 +12,9 @@ import android.view.animation.Animation
 import androidx.activity.viewModels
 import com.permissionx.guolindev.PermissionX
 import com.school.dailylife.R
-import com.school.dailylife.config.CORRENT_USER_ACCOUNT_NUM
-import com.school.dailylife.config.CORRENT_USER_PSW
+import com.school.dailylife.bean.User
+import com.school.dailylife.config.*
+import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.defaultSharedPrefrence
 import com.school.dailylife.util.toast
 import com.school.dailylife.viewmodel.UserViewModel
@@ -25,36 +26,31 @@ class LoginActivity : BaseActivity() {
 
     private val viewmodel by viewModels<UserViewModel>()
 
+    override fun onStart() {
+        super.onStart()
+        setLoginAnimation()
+    }
+
     override fun beforeSetContentViewId(savedInstanceState: Bundle?) {
-        PermissionX.init(this)
-            .permissions(
-                Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                Manifest.permission.CAMERA,
-                Manifest.permission.READ_EXTERNAL_STORAGE
+        if (defaultSharedPrefrence.getBoolean(CURRNT_USER_EXIST, false)) {
+            val user = User(
+                defaultSharedPrefrence.getString(CURRENT_USER_AVATAR, "") ?: "",
+                defaultSharedPrefrence.getString(CURRENT_USER_NiCKNAME, "") ?: "",
+                defaultSharedPrefrence.getString(CURRENT_USER_SIGNATURE, "") ?: "",
+                defaultSharedPrefrence.getString(CURRENT_USER_TOKEN, "") ?: ""
             )
-            .onExplainRequestReason { scope, deniedList ->
-                val message = "需要您同意以下权限才能正常使用"
-                scope.showRequestReasonDialog(deniedList, message, "确定", "取消")
-            }
-            .request { allGranted, grantedList, deniedList ->
-                if (allGranted) {
-                    this.toast("All permissions are granted")
-                } else {
-                    this.toast("These permissions are denied: $deniedList")
-                }
-            }
-
-
+            CurrentUser.setCurrentUser(user)
+            goToMainActivity()
+        }
     }
 
     override fun initView(savedInstanceState: Bundle?) {
 
+        setObserVer()
         defaultSharedPrefrence.apply {
             et_login_username.setText(this.getString(CORRENT_USER_ACCOUNT_NUM, ""))
             et_login_psw.setText(this.getString(CORRENT_USER_PSW, ""))
         }
-        setLoginAnimation()
-        setObserVer()
 
         btn_login.setOnClickListener {
             val username = et_login_username.text.toString()
@@ -74,6 +70,7 @@ class LoginActivity : BaseActivity() {
         ctv_need_remember_psw.setOnClickListener {
             ctv_need_remember_psw.toggle()
         }
+
 
     }
 

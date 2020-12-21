@@ -19,7 +19,7 @@ class SettingActivity : BaseActivity() {
     override fun initView(savedInstanceState: Bundle?) {
 
         cl_setting_upload_contact_way.setOnClickListener {
-            dialog = EditMyContactDialog()
+            dialog = EditMyContactDialog(viewmodel)
             dialog?.show(
                 supportFragmentManager,
                 "EditMyContactDialog"

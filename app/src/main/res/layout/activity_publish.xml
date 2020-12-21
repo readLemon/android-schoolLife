@@ -79,6 +79,31 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_pub_price"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="@+id/til_pub_desc"
+        app:layout_constraintStart_toStartOf="@+id/til_pub_desc"
+        app:layout_constraintTop_toBottomOf="@+id/til_pub_title">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/et_pubing_product_price"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/shape_pub_et_bg"
+            android:gravity="center"
+            android:hint="请在这里输入商品价格"
+            android:inputType="number"
+            android:maxLength="10"
+            android:maxLines="1"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
+            android:textSize="15sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_pubing_type_id"
@@ -92,7 +117,7 @@
         android:background="@drawable/shape_pub_et_bg"
         app:layout_constraintEnd_toStartOf="@+id/tv_pubing_catagory_id"
         app:layout_constraintStart_toStartOf="@+id/til_pub_desc"
-        app:layout_constraintTop_toBottomOf="@+id/til_pub_title" />
+        app:layout_constraintTop_toBottomOf="@+id/til_pub_price" />
 
 
     <androidx.appcompat.widget.AppCompatTextView

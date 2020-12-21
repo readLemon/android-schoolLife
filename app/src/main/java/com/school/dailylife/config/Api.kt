@@ -19,7 +19,7 @@ object Api {
     const val sortFmData = "/getSort"
 
     //用于上传描述的图片
-    const val uploadDescPhotos = "/uploadDescPhotos"
+    const val uploadDescPhotos = "/uploadProduct"
 
     //用于上传个人联系方式的图片
     const val uploadContactWay = "/uploadContactWay"
@@ -27,7 +27,7 @@ object Api {
 
     const val getMyPubedProducts = "getMyPubedProducts"
 
-    const val getProductDetail = "/getProductDetail"
+    const val getProductDetail = "/getMyPubedProducts"
 
 
 }

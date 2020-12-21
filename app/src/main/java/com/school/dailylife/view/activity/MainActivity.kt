@@ -1,5 +1,6 @@
 package com.school.dailylife.view.activity
 
+import android.Manifest
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
@@ -9,19 +10,42 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.permissionx.guolindev.PermissionX
 import com.school.dailylife.R
+import com.school.dailylife.util.toast
 import com.school.dailylife.view.fragment.BaseFragment
 import com.school.dailylife.view.fragment.MainFragment
 import com.school.dailylife.view.fragment.MineFragment
 import com.school.dailylife.view.fragment.SortFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
 
     private var preNavPos = -1
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override val contentViewId: Int
+        get() = R.layout.activity_main
+
+    override fun beforeSetContentViewId(savedInstanceState: Bundle?) {
+        PermissionX.init(this)
+            .permissions(
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE
+            )
+            .onExplainRequestReason { scope, deniedList ->
+                val message = "需要您同意以下权限才能正常使用"
+                scope.showRequestReasonDialog(deniedList, message, "确定", "取消")
+            }
+            .request { allGranted, grantedList, deniedList ->
+                if (allGranted) {
+                    this.toast("All permissions are granted")
+                } else {
+                    this.toast("These permissions are denied: $deniedList")
+                }
+            }
+    }
+
+    override fun initView(savedInstanceState: Bundle?) {
 
         nav_main.setOnNavigationItemSelectedListener(this)
         vp_main.adapter =
@@ -37,6 +61,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
             }
         })
     }
+
+
+
 
 
     inner class MyViewPagerAdapter(fm: FragmentManager, life: Lifecycle) :

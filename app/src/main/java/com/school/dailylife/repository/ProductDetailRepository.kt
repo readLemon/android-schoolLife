@@ -14,7 +14,6 @@ class ProductDetailRepository : BaseRepository<ProductDetailService>() {
     override val serviceClass: Class<ProductDetailService>
         get() = ProductDetailService::class.java
 
-
     fun getProductDetail(uid: Int, pid: Int): Observable<ProductDetailBean> {
         return observable(
             service.getProductDetail(

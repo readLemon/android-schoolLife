@@ -8,7 +8,10 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.school.dailylife.R
 import com.school.dailylife.bean.MainProductBean
+import com.school.dailylife.config.INTENT_KEY_PRODUCT_ID
+import com.school.dailylife.config.INTENT_KEY_PRODUCT_OWNER_ID
 import com.school.dailylife.util.loadPic
+import com.school.dailylife.view.activity.ProductDetailActivity
 import com.school.dailylife.view.activity.PublishActivity
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
 import com.school.dailylife.viewmodel.MainFmViewModel
@@ -89,6 +92,12 @@ class MainFragment : BaseFragment() {
                     .into(civ_main_rv_avatar)
 
                 tv_main_rv_username.text = bean.username
+            },
+            {
+                val intent = Intent(requireContext(), ProductDetailActivity::class.java)
+                intent.putExtra(INTENT_KEY_PRODUCT_ID, this.pid)
+                intent.putExtra(INTENT_KEY_PRODUCT_OWNER_ID, this.uid)
+                startActivity(intent)
             }
         )
         rv_main.adapter = adapter

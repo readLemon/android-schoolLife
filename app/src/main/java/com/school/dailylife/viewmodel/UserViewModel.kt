@@ -1,15 +1,12 @@
 package com.school.dailylife.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.mredrock.runtogether.App
-import com.school.dailylife.config.CORRENT_USER_ACCOUNT_NUM
-import com.school.dailylife.config.CORRENT_USER_PSW
+import com.school.dailylife.config.*
 import com.school.dailylife.repository.UserRepository
 import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.defaultSharedPrefrence
 import com.school.dailylife.util.editor
-import kotlinx.android.synthetic.main.activity_login.*
 
 /**
  * Created by chenyang
@@ -34,6 +31,11 @@ class UserViewModel : BaseViewModel() {
                 sp.editor {
                     putString(CORRENT_USER_ACCOUNT_NUM, username)
                     putString(CORRENT_USER_PSW, psw)
+                    putString(CURRENT_USER_TOKEN, it.token)
+                    putString(CURRENT_USER_AVATAR, it.avatarPic)
+                    putString(CURRENT_USER_SIGNATURE, it.signature)
+                    putString(CURRENT_USER_NiCKNAME, it.nickname)
+                    putBoolean(CURRNT_USER_EXIST, true)
                 }
             } else {
                 sp.editor {
