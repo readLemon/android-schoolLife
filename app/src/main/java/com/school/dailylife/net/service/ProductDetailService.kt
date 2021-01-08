@@ -4,10 +4,7 @@ import com.school.dailylife.bean.ProductDetailBean
 import com.school.dailylife.config.Api
 import com.school.dailylife.net.JsonWrapper
 import io.reactivex.Observable
-import retrofit2.http.Field
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 
 /**
  * Created by chenyang
@@ -15,7 +12,8 @@ import retrofit2.http.POST
  */
 interface ProductDetailService {
 
-    @GET(Api.getProductDetail)
+    @FormUrlEncoded
+    @POST(Api.getProductDetail)
     fun getProductDetail(
         @Header(Api.TOKEN_STR) token: String,
         @Field("uid") uid: Int,

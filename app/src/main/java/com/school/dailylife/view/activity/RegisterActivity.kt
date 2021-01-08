@@ -23,6 +23,7 @@ class RegisterActivity : BaseActivity() {
         viewmodel.isRegisterSuccess.observe(this@RegisterActivity, {
             dismiss()
             if (it) {
+                toast("注册成功！")
                 startActivity(Intent(this, LoginActivity::class.java))
                 finish()
             } else {
@@ -46,7 +47,7 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun isUsernameAvalable(username: String): Boolean {
-        return username.trim().length == 8
+        return username.trim().length == 6
     }
 
 

@@ -17,3 +17,5 @@ const val CURRENT_USER_NiCKNAME = "current_user_username"
 //查看商品详情的时候，这个id
 const val INTENT_KEY_PRODUCT_ID = "PRODUCT_ID"
 const val INTENT_KEY_PRODUCT_OWNER_ID = "PRODUCT_OWNER_ID"
+
+const val IS_FIRST_LOGIN = "IS_FIRST_USER_LOGIN"

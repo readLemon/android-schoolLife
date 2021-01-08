@@ -1,6 +1,5 @@
 package com.school.dailylife.view.activity
 
-import android.Manifest
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
 import android.annotation.SuppressLint
@@ -10,7 +9,6 @@ import android.util.Log
 import android.view.View
 import android.view.animation.Animation
 import androidx.activity.viewModels
-import com.permissionx.guolindev.PermissionX
 import com.school.dailylife.R
 import com.school.dailylife.bean.User
 import com.school.dailylife.config.*

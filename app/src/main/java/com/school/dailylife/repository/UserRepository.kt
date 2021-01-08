@@ -20,8 +20,8 @@ class UserRepository : BaseRepository<UserService>() {
     }
 
 
-    fun register(username: String, psw: String): Observable<BaseJson> {
-        return observable(service.register(username, psw)).map(JsonWrapperFunc<BaseJson>())
+    fun register(username: String, psw: String): Observable<Any> {
+        return observable(service.register(username, psw))
     }
 
 

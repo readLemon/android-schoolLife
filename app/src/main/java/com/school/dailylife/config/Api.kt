@@ -12,7 +12,11 @@ object Api {
 
     const val login = "/login"
 
+    const val register = "/register"
+
     const val mainFmData = "/getInitData"
+
+    const val search = "/getProductBySearch"
 
     const val mineFmData = "/getMyData"
 
@@ -27,7 +31,7 @@ object Api {
 
     const val getMyPubedProducts = "getMyPubedProducts"
 
-    const val getProductDetail = "/getMyPubedProducts"
+    const val getProductDetail = "/getProductDetail"
 
 
 }

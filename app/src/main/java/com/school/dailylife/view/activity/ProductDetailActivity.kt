@@ -1,6 +1,7 @@
 package com.school.dailylife.view.activity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import com.school.dailylife.R
 import com.school.dailylife.bean.ProductDetailBean
@@ -35,8 +36,9 @@ class ProductDetailActivity : BaseActivity() {
     private val productProperties by lazy { mutableListOf<ProductDetailBean.ProductProperty>() }
     private val productPics by lazy { mutableListOf<String>() }
 
-    override fun onStart() {
-        super.onStart()
+
+
+    override fun initView(savedInstanceState: Bundle?) {
         pid = intent.getIntExtra(INTENT_KEY_PRODUCT_ID, -1)
         uid = intent.getIntExtra(INTENT_KEY_PRODUCT_OWNER_ID, -1)
         if (pid == -1
@@ -45,9 +47,7 @@ class ProductDetailActivity : BaseActivity() {
             toast("没有收到商品id或者用户id！")
             finish()
         }
-    }
 
-    override fun initView(savedInstanceState: Bundle?) {
         ownerContactWayAdapter = CommonRecyclerAdapter(
             R.layout.item_rv_key_value,
             ownerContactWays,

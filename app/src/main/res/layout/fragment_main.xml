@@ -31,6 +31,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_main_search"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
@@ -41,16 +42,19 @@
                 android:gravity="center"
                 android:hint="请输入搜索的关键词"
                 android:paddingStart="10dp"
-                app:layout_constraintEnd_toStartOf="@+id/iv_main_msg"
+                app:layout_constraintEnd_toStartOf="@+id/tv_main_search"
                 app:layout_constraintStart_toEndOf="@+id/tv_main_title"
                 tools:ignore="RtlSymmetry" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/iv_main_msg"
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_main_search"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:src="@drawable/ic_main_msg"
+                android:text="搜索"
+                android:textSize="16sp"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.youth.banner.Banner

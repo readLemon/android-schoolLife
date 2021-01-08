@@ -33,9 +33,6 @@ class MineFragment : LazyFragment() {
                 requireActivity().finish()
             }
         } else {
-//            Glide.with(requireContext())
-//                .load(CurrentUser.getCurrentUser().avatarPic)
-//                .into(iv_mine_user_avatar)
             iv_mine_user_avatar.loadPic(CurrentUser.getCurrentUser().avatarPic)
             tv_fm_mine_username.setText(CurrentUser.getCurrentUser().nickname)
             tv_fm_mine_soled_num.invalidate()

@@ -4,6 +4,7 @@ import android.Manifest
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
@@ -12,11 +13,14 @@ import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.permissionx.guolindev.PermissionX
 import com.school.dailylife.R
+import com.school.dailylife.config.IS_FIRST_LOGIN
+import com.school.dailylife.util.defaultSharedPrefrence
 import com.school.dailylife.util.toast
 import com.school.dailylife.view.fragment.BaseFragment
 import com.school.dailylife.view.fragment.MainFragment
 import com.school.dailylife.view.fragment.MineFragment
 import com.school.dailylife.view.fragment.SortFragment
+import com.school.dailylife.view.fragment.dialog.GetMsgDialog
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +47,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                     this.toast("These permissions are denied: $deniedList")
                 }
             }
+
     }
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -60,6 +65,18 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
                 nav_main.menu.getItem(position).setChecked(true)
             }
         })
+
+        if (defaultSharedPrefrence.getBoolean(IS_FIRST_LOGIN, true)) {
+            firstLogin()
+            defaultSharedPrefrence.edit {
+                putBoolean(IS_FIRST_LOGIN, false)
+            }
+        }
+    }
+
+    private fun firstLogin() {
+        val dialog = GetMsgDialog()
+        dialog.show(supportFragmentManager, "firstLogin")
     }
 
 

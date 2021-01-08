@@ -24,11 +24,10 @@ interface UserService {
 
 
     @FormUrlEncoded
-    @POST(Api.login)
+    @POST(Api.register)
     fun register(
         @Field("accountNumber") username: String,
         @Field("password") psw: String
-    ): Observable<JsonWrapper<BaseJson>>
-
+    ): Observable<Any>
 
 }

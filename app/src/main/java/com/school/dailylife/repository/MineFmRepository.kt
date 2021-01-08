@@ -6,6 +6,7 @@ import com.school.dailylife.bean.SoledProductBean
 import com.school.dailylife.net.service.MineFmService
 import com.school.dailylife.util.CurrentUser
 import io.reactivex.Observable
+import java.lang.StringBuilder
 
 /**
  * Created by chenyang
@@ -28,4 +29,5 @@ class MineFmRepository : BaseRepository<MineFmService>() {
         return observable(service.getMyPubedProducts(CurrentUser.getCurrentUser().token))
             .map(JsonWrapperFunc())
     }
+
 }

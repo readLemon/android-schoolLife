@@ -2,6 +2,7 @@ package com.school.dailylife.view.fragment
 
 import android.content.Intent
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -14,6 +15,7 @@ import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.activity.ProductDetailActivity
 import com.school.dailylife.view.activity.PublishActivity
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
+import com.school.dailylife.view.fragment.dialog.SearchResultDialog
 import com.school.dailylife.viewmodel.MainFmViewModel
 import com.youth.banner.adapter.BannerImageAdapter
 import com.youth.banner.holder.BannerImageHolder
@@ -36,6 +38,17 @@ class MainFragment : BaseFragment() {
         viewmodel.getMainData()
         initProductRecyclerview()
         initBanner()
+
+        tv_main_search.setOnClickListener {
+            val searchTar = et_main_search.text.toString()
+            if (!searchTar.trim().isEmpty()) {
+                viewmodel.search(searchTar)
+                SearchResultDialog(viewmodel).show(childFragmentManager, "searchResult")
+            } else {
+                Toast.makeText(requireContext(), "你输入的搜索内容不符合要求！", Toast.LENGTH_SHORT).show()
+            }
+        }
+
     }
 
 
