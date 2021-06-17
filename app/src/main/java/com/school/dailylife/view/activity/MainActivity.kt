@@ -3,6 +3,7 @@ package com.school.dailylife.view.activity
 import android.Manifest
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.fragment.app.Fragment
@@ -21,6 +22,7 @@ import com.school.dailylife.view.fragment.MainFragment
 import com.school.dailylife.view.fragment.MineFragment
 import com.school.dailylife.view.fragment.SortFragment
 import com.school.dailylife.view.fragment.dialog.GetMsgDialog
+import com.school.dailylife.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
@@ -28,6 +30,8 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     private var preNavPos = -1
     override val contentViewId: Int
         get() = R.layout.activity_main
+
+    private val userViewModel by viewModels<UserViewModel>()
 
     override fun beforeSetContentViewId(savedInstanceState: Bundle?) {
         PermissionX.init(this)
@@ -67,6 +71,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         })
 
         if (defaultSharedPrefrence.getBoolean(IS_FIRST_LOGIN, true)) {
+//        if (true) {
             firstLogin()
             defaultSharedPrefrence.edit {
                 putBoolean(IS_FIRST_LOGIN, false)
@@ -75,7 +80,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     }
 
     private fun firstLogin() {
-        val dialog = GetMsgDialog()
+        val dialog = GetMsgDialog(userViewModel)
         dialog.show(supportFragmentManager, "firstLogin")
     }
 

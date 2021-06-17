@@ -69,7 +69,7 @@
             android:hint="请输入用户ID"
             android:inputType="number"
             android:maxLines="1"
-            android:maxLength="8"
+            android:maxLength="6"
             android:paddingStart="10dp"
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -95,6 +95,7 @@
             android:gravity="center"
             android:hint="请输入密码"
             android:maxLines="1"
+            android:maxLength="6"
             android:inputType="textPassword"
             android:paddingStart="10dp"
             android:textSize="16sp"

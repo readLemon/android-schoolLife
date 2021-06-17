@@ -3,7 +3,7 @@ package com.school.dailylife.view.adapter
 import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
-import com.mredrock.runtogether.App
+import com.school.dailylife.App
 import com.school.dailylife.R
 
 /**

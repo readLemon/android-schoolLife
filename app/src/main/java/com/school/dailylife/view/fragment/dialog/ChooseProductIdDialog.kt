@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.mredrock.runtogether.App
+import com.school.dailylife.App
 import com.school.dailylife.R
 import com.school.dailylife.util.ScreenSizeType
 import com.school.dailylife.util.getScreenHeight

@@ -8,8 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.viewModels
-import com.mredrock.runtogether.App
+import com.school.dailylife.App
 import com.school.dailylife.R
 import com.school.dailylife.config.NET_REQUEST_SUCCESSFULL
 import com.school.dailylife.util.ScreenSizeType
@@ -34,8 +33,8 @@ class EditMyContactDialog(val viewmodel: SettingViewModel) : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         btn_dialog_contact_sure.setOnClickListener {
-            val phone = et_dialog_contact_way_phone.text.toString()
-            val qq = et_dialog_contact_way_qq.text.toString()
+            val phone = et_dialog_get_msg_sex.text.toString()
+            val qq = et_dialog_get_msg_age.text.toString()
             viewmodel.uploadContactWayPhoto(phone, qq)
                 .subscribe({
                     if (it.status == NET_REQUEST_SUCCESSFULL) {

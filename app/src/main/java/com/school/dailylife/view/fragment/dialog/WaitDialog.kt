@@ -7,15 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
-import com.mredrock.runtogether.App
+import com.school.dailylife.App
 import com.school.dailylife.R
-import com.school.dailylife.bean.SoledProductBean
-import com.school.dailylife.net.JsonWrapper
 import com.school.dailylife.util.ScreenSizeType
 import com.school.dailylife.util.getScreenHeight
 import com.school.dailylife.util.getScreenWidth
-import io.reactivex.Observable
-import io.reactivex.disposables.Disposable
 
 /**
  * Created by chenyang

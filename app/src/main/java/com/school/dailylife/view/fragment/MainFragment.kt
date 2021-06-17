@@ -40,7 +40,7 @@ class MainFragment : BaseFragment() {
         initBanner()
 
         tv_main_search.setOnClickListener {
-            val searchTar = et_main_search.text.toString()
+            val searchTar = et_main_search.text.toString().trim()
             if (!searchTar.trim().isEmpty()) {
                 viewmodel.search(searchTar)
                 SearchResultDialog(viewmodel).show(childFragmentManager, "searchResult")

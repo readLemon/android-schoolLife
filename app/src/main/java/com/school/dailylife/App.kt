@@ -1,4 +1,4 @@
-package com.mredrock.runtogether
+package com.school.dailylife
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -38,7 +38,7 @@ class App : Application(), ViewModelStoreOwner {
 
     private fun getAppFactory() = mFactory
 
-    fun getAppViewModelProvider(activity: Activity) : ViewModelProvider {
+    fun getAppViewModelProvider(activity: Activity): ViewModelProvider {
         val app = checkApplication(activity) as App
         return ViewModelProvider(app, app.getAppFactory())
     }
@@ -48,8 +48,9 @@ class App : Application(), ViewModelStoreOwner {
     }
 
     private fun checkApplication(activity: Activity): Application {
-        return activity.application?:throw IllegalStateException(
-                "你的activity目前还没attach Application")
+        return activity.application ?: throw IllegalStateException(
+            "你的activity目前还没attach Application"
+        )
     }
 
 

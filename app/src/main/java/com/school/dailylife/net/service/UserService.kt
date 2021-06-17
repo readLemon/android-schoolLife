@@ -7,6 +7,7 @@ import com.school.dailylife.net.JsonWrapper
 import io.reactivex.Observable
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.Header
 import retrofit2.http.POST
 
 /**
@@ -29,5 +30,15 @@ interface UserService {
         @Field("accountNumber") username: String,
         @Field("password") psw: String
     ): Observable<Any>
+
+    @POST(Api.postUserInformation)
+    fun postUserInformation(
+        @Header(Api.TOKEN_STR) token: String,
+        @Header("sex") sex: Int,
+        @Header("age") age: Int,
+        @Header("enterSchoolYear") year: Int,
+        @Header("hobby") hobby: String,
+        @Header("major") major: String,
+    ) : Observable<JsonWrapper<Any>>
 
 }

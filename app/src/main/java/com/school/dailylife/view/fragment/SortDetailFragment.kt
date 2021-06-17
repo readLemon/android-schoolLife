@@ -26,12 +26,19 @@ class SortDetailFragment : LazyFragment() {
         val data = mutableListOf<SortDetailBean>()
         val sortTypeBeanList = mutableListOf<SortTypeBean>()
 
-        val adapter = CommonRecyclerAdapter(R.layout.item_rv_sort_detail, data, { sortTypeBean ->
-            this.tv_sort_detail_name.text = sortTypeBean.name
-            Glide.with(context)
-                .load(sortTypeBean.picUrl)
-                .into(this.iv_sort_detail_pic)
-        })
+        val adapter = CommonRecyclerAdapter(
+            R.layout.item_rv_sort_detail,
+            data,
+            { sortTypeBean ->
+                this.tv_sort_detail_name.text = sortTypeBean.name
+                Glide.with(context)
+                    .load(sortTypeBean.picUrl)
+                    .into(this.iv_sort_detail_pic)
+            },
+            //当图片被点击以后
+            {
+
+            })
 
         rv_sort_detail.adapter = adapter
 

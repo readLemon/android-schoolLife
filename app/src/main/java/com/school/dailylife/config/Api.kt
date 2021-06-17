@@ -29,9 +29,11 @@ object Api {
     const val uploadContactWay = "/uploadContactWay"
 
 
-    const val getMyPubedProducts = "getMyPubedProducts"
+    const val getMyPubedProducts = "/getMyPubedProducts"
 
     const val getProductDetail = "/getProductDetail"
+    //上传用户的个人信息
+    const val postUserInformation ="/uploadUserDetail"
 
 
 }

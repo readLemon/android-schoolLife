@@ -16,8 +16,8 @@ class RetrofitManager private constructor() {
 
     companion object {
 
-        private val DEFAULT_TIME_OUT = 5L
-        private val DEFAULT_READ_TIME_OUT = 10L
+        private const val DEFAULT_TIME_OUT = 10L
+        private const val DEFAULT_READ_TIME_OUT = 10L
 
         fun getInstance(): RetrofitManager {
             return SingletonHolder.INSTANCE
@@ -27,12 +27,11 @@ class RetrofitManager private constructor() {
     private val mRetrofit: Retrofit
 
     init {
-
         val logging = HttpLoggingInterceptor()
         logging.level = HttpLoggingInterceptor.Level.BASIC
 
 
-        val OkHttpClient = with(OkHttpClient.Builder()) {
+        val okHttpClient = with(OkHttpClient.Builder()) {
             connectTimeout(DEFAULT_TIME_OUT, TimeUnit.SECONDS)
             writeTimeout(DEFAULT_READ_TIME_OUT, TimeUnit.SECONDS)
             readTimeout(DEFAULT_READ_TIME_OUT, TimeUnit.SECONDS)
@@ -41,7 +40,7 @@ class RetrofitManager private constructor() {
         }
 
         mRetrofit = with(Retrofit.Builder()) {
-            client(OkHttpClient)
+            client(okHttpClient)
             addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             addConverterFactory(GsonConverterFactory.create())
             baseUrl(Api.BASE_URL)
@@ -51,7 +50,7 @@ class RetrofitManager private constructor() {
     }
 
     private object SingletonHolder {
-        internal val INSTANCE = RetrofitManager()
+        val INSTANCE = RetrofitManager()
     }
 
     fun <T> create(service: Class<T>): T {

@@ -50,7 +50,7 @@
             android:background="@drawable/shape_login_username_bg"
             android:gravity="center"
             android:hint="请输入用户ID"
-            android:maxLength="8"
+            android:maxLength="6"
             android:inputType="number"
             android:maxLines="1"
             android:paddingStart="10dp"
@@ -91,6 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
+        android:maxLength="6"
         android:text="*帐号和密码皆是六位数"
         app:layout_constraintStart_toStartOf="@+id/til_register_psw"
         app:layout_constraintTop_toBottomOf="@+id/til_register_psw" />

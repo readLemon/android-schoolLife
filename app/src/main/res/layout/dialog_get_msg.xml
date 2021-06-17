@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -45,48 +44,49 @@
         app:layout_constraintTop_toTopOf="@+id/gl_dialog_get_msg_top">
 
         <LinearLayout
-            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_dialog_contact_way_phone"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dialog_my_contact_way_height"
-                    android:gravity="center"
-                    android:hint="请输入你的性别(0男 1女)"
-                    android:digits="01"
-                    android:inputType="number"
-                    android:maxLines="1"
-                    android:background="@drawable/shape_contact_way_et_bg"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:textColor="@color/color_white" />
-
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_dialog_contact_way_qq"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/dialog_my_contact_way_height"
-                    android:gravity="center"
-                    android:hint="请输入你的年龄"
-                    android:inputType="number"
-                    android:background="@drawable/shape_contact_way_et_bg"
-                    android:maxLines="1"
-                    android:paddingStart="5dp"
-                    android:paddingEnd="5dp"
-                    android:textColor="@color/color_white" />
+            android:orientation="vertical"
+            android:padding="10dp">
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:layout_marginTop="10dp"
+                android:id="@+id/et_dialog_get_msg_sex"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dialog_my_contact_way_height"
+                android:background="@drawable/shape_contact_way_et_bg"
+                android:digits="01"
+                android:gravity="center"
+                android:hint="请输入你的性别(0男 1女)"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:textColor="@color/color_white" />
+
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_dialog_get_msg_age"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dialog_my_contact_way_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_contact_way_et_bg"
+                android:gravity="center"
+                android:hint="请输入你的年龄"
+                android:inputType="number"
+                android:maxLines="1"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:textColor="@color/color_white" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_dialog_get_msg_enter_school_year"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dialog_my_contact_way_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_contact_way_et_bg"
                 android:gravity="center"
                 android:hint="请输入你的入学年份"
                 android:inputType="number"
-                android:background="@drawable/shape_contact_way_et_bg"
                 android:maxLines="1"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
@@ -94,12 +94,13 @@
 
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:layout_marginTop="10dp"
+                android:id="@+id/et_dialog_get_msg_hobby"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dialog_my_contact_way_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_contact_way_et_bg"
                 android:gravity="center"
                 android:hint="请输入你的爱好"
-                android:background="@drawable/shape_contact_way_et_bg"
                 android:maxLines="1"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"
@@ -107,12 +108,13 @@
 
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:layout_marginTop="10dp"
+                android:id="@+id/et_dialog_get_msg_major"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dialog_my_contact_way_height"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_contact_way_et_bg"
                 android:gravity="center"
                 android:hint="请输入你的专业"
-                android:background="@drawable/shape_contact_way_et_bg"
                 android:maxLines="1"
                 android:paddingStart="5dp"
                 android:paddingEnd="5dp"

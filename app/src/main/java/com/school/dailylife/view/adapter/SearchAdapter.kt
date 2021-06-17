@@ -31,9 +31,8 @@ class SearchAdapter(
 
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onBindViewHolder(holder: CommonRecyclerAdapter.SimpleViewHolder, position: Int) {
-        val bean = datas.get(position)
+        val bean = datas[position]
         holder.itemView.apply {
-
 
             this.findViewById<AppCompatTextView>(R.id.tv_search_rv_title).text = bean.title
             this.findViewById<AppCompatTextView>(R.id.tv_search_rv_price).text = "$${bean.price}"
@@ -42,7 +41,7 @@ class SearchAdapter(
             this.findViewById<AppCompatTextView>(R.id.tv_search_rv_username).text = bean.username
 
             Glide.with(context)
-                .load(bean.userAvatar)
+                .load(bean.productPic)
                 .into(this.findViewById<AppCompatImageView>(R.id.iv_search_rv_product_pic))
         }
 

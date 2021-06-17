@@ -1,12 +1,14 @@
 package com.school.dailylife.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.mredrock.runtogether.App
+import com.school.dailylife.App
 import com.school.dailylife.config.*
 import com.school.dailylife.repository.UserRepository
 import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.defaultSharedPrefrence
 import com.school.dailylife.util.editor
+import java.net.URLEncoder
 
 /**
  * Created by chenyang
@@ -58,6 +60,27 @@ class UserViewModel : BaseViewModel() {
             isRegisterSuccess.value = false
             it.printStackTrace()
         }).lifeCycle()
+    }
+
+
+    fun postUserInformation(
+        sex: Int,
+        age: Int,
+        enterSchoolYear: Int,
+        hobby: String,
+        major: String
+    ) {
+        val encodeHobby = URLEncoder.encode(hobby, "UTF-8")
+        val encodeMajor = URLEncoder.encode(hobby, "UTF-8")
+
+            repo.postUserInformation(sex, age, enterSchoolYear, encodeHobby, encodeMajor)
+                .subscribe ({
+                    Log.d("UserViewModel", "上传用户信息是否成功${it.status == 200}")
+                },{
+                    it.printStackTrace()
+                }).lifeCycle()
+
+
     }
 
 
