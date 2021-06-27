@@ -47,14 +47,14 @@ class MineFragment : LazyFragment() {
             }
         }
 
-        viewmodel.soledBeans.observe({
+        viewmodel.soledBeans.observe { it ->
             if (!it.isNullOrEmpty()) {
-                ShowMyPubedProductDialog(it).show(
+                ShowMyPubedProductDialog(it.filter { it.status == 1 }).show(
                     childFragmentManager,
                     "ShowMyPubedProductDialog"
                 )
             }
-        })
+        }
 
         iv_mine_setting.setOnClickListener {
             startActivity(Intent(requireActivity(), SettingActivity::class.java))

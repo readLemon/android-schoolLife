@@ -12,7 +12,8 @@ data class SoledProductBean(
         val description: String,
         val price: Float,
         val status: Int,
-        val title: String
+        val title: String,
+        val pid: String = ""
     )
 }
 

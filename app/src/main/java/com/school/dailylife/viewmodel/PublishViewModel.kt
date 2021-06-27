@@ -32,7 +32,7 @@ class PublishViewModel : BaseViewModel() {
 
         for (path in photoPathes) {
             val file = File(path)
-            builder.addFormDataPart("file[]", file.getName(), RequestBody.create(MediaType.parse("image/*"), file));
+            builder.addFormDataPart("file[]", file.name, RequestBody.create(MediaType.parse("image/*"), file))
         }
 
 

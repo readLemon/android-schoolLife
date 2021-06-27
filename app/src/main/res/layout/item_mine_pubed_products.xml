@@ -1,56 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.school.dailylife.view.widget.SlideLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10dp"
-    android:layout_marginBottom="15dp"
-    android:background="@color/colorPrimaryDark"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="wrap_content">
 
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_dialog_show_pubed_title"
-        android:text="我是一个title"
-        android:textSize="16sp"
-        android:textColor="@color/color_white"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_dialog_mine_pubed_desc"
-        android:textSize="15sp"
-        android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxx"
-        android:layout_marginEnd="100dp"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/color_white"
-        app:layout_constraintTop_toBottomOf="@id/tv_dialog_show_pubed_title"
-        app:layout_constraintStart_toStartOf="@+id/tv_dialog_show_pubed_title"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_my_product"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_dialog_pubed_price"
-        android:layout_marginTop="5dp"
-        android:text="价格：$111"
-        android:textSize="15sp"
-        android:textColor="@color/color_white"
-        app:layout_constraintTop_toBottomOf="@+id/tv_dialog_mine_pubed_desc"
-        app:layout_constraintStart_toStartOf="@id/tv_dialog_show_pubed_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_dialog_product_isSoled"
-        android:text="已买出"
-        android:textColor="@color/color_white"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        android:layout_marginBottom="15dp"
+        android:background="@color/colorPrimaryDark"
+        android:padding="10dp">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_dialog_show_pubed_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我是一个title"
+            android:textColor="@color/color_white"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_dialog_mine_pubed_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="100dp"
+            android:text="xxxxxxxxxxxxxxxxxxxxxxxxxxx"
+            android:textColor="@color/color_white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_dialog_show_pubed_title"
+            app:layout_constraintTop_toBottomOf="@id/tv_dialog_show_pubed_title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_dialog_pubed_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="价格：$111"
+            android:textColor="@color/color_white"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@id/tv_dialog_show_pubed_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dialog_mine_pubed_desc" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_dialog_product_isSoled"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已买出"
+            android:textColor="@color/color_white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cl_my_product"
+        app:layout_constraintStart_toEndOf="@+id/cl_my_product"
+        app:layout_constraintTop_toTopOf="@+id/cl_my_product">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_item_soled"
+            android:layout_width="90dp"
+            android:layout_height="match_parent"
+            android:background="#D7D7D7"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:text="已出售"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.school.dailylife.view.widget.SlideLayout>

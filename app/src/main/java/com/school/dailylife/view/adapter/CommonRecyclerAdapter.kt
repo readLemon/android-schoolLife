@@ -14,7 +14,7 @@ open class CommonRecyclerAdapter<T>(
     private val layoutId: Int,
     private val datas: List<T>,
     private val binHolder: View.(T) -> Unit = {}
-) : RecyclerView.Adapter<CommonRecyclerAdapter.SimpleViewHolder>() {
+) : RecyclerView.Adapter<ViewHolder>() {
 
 
     private var itemClick: T.() -> Unit = {}
@@ -39,15 +39,15 @@ open class CommonRecyclerAdapter<T>(
         this.itemviewClick = itemviewClick
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimpleViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
         return SimpleViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: SimpleViewHolder, position: Int) {
-        holder.itemView.binHolder(datas.get(holder.adapterPosition))
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.binHolder(datas[holder.adapterPosition])
         holder.itemView.setOnClickListener {
-            datas.get(position).itemClick()
+            datas[position].itemClick()
             itemviewClick(it)
         }
     }

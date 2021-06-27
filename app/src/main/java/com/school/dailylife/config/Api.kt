@@ -8,7 +8,7 @@ object Api {
 
     const val TOKEN_STR = "token"
 
-    const val BASE_URL = "http://irving.run:18080/"
+    const val BASE_URL = "http://1.15.139.41:18080/"
 
     const val login = "/login"
 
@@ -35,5 +35,12 @@ object Api {
     //上传用户的个人信息
     const val postUserInformation ="/uploadUserDetail"
 
+    const val changeProductState = "/change_state"
 
+    //上传一卡通照片
+    const val uploadStuCard = "/upload_stucard"
+
+    const val uploadCardMessage = "/publish_card"
+
+    const val getLostCards = "/get_losts "
 }

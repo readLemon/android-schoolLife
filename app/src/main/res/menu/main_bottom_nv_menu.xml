@@ -15,6 +15,12 @@
         tools:ignore="HardcodedText" />
 
     <item
+        android:id="@+id/nav_lost"
+        android:icon="@drawable/ic_main_bottom_lost"
+        android:title="失物"
+        tools:ignore="HardcodedText" />
+
+    <item
         android:id="@+id/nav_mine"
         android:icon="@drawable/ic_main_bottom_mine"
         android:title="我的"

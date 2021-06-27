@@ -11,6 +11,7 @@ import com.school.dailylife.R
 import com.school.dailylife.bean.MainProductBean
 import com.school.dailylife.config.INTENT_KEY_PRODUCT_ID
 import com.school.dailylife.config.INTENT_KEY_PRODUCT_OWNER_ID
+import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.activity.ProductDetailActivity
 import com.school.dailylife.view.activity.PublishActivity
@@ -35,7 +36,9 @@ class MainFragment : BaseFragment() {
     private val viewmodel by viewModels<MainFmViewModel>()
 
     override fun afterViewCteated(view: View) {
-        viewmodel.getMainData()
+        if (CurrentUser.user != null) {
+            viewmodel.getMainData()
+        }
         initProductRecyclerview()
         initBanner()
 

@@ -23,7 +23,7 @@ class PublishActivity : BaseActivity(), View.OnClickListener {
     override val contentViewId: Int
         get() = R.layout.activity_publish
 
-    private var adapter: RecyclerView.Adapter<CommonRecyclerAdapter.SimpleViewHolder>? = null
+    private var adapter: RecyclerView.Adapter<RecyclerView.ViewHolder>? = null
     private val pathList by lazy { mutableListOf<String>() }
     private val viewmodel by viewModels<PublishViewModel>()
     private var dialog: DialogFragment? = null
@@ -70,7 +70,7 @@ class PublishActivity : BaseActivity(), View.OnClickListener {
             R.id.iv_pub_add_image -> {
                 checkStoragePermission(this@PublishActivity)
                 // 跳转到图片选择器
-                ISNav.getInstance().toListActivity(this, config, REQUEST_PHOTO_LIST_CODE)
+                ISNav.getInstance().toListActivity(this, getConfig(4), REQUEST_PHOTO_LIST_CODE)
             }
 
             //选择typeId

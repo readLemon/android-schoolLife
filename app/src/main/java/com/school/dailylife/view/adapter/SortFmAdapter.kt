@@ -3,6 +3,7 @@ package com.school.dailylife.view.adapter
 import android.os.Build
 import android.view.View
 import androidx.annotation.RequiresApi
+import androidx.recyclerview.widget.RecyclerView
 import com.school.dailylife.App
 import com.school.dailylife.R
 
@@ -21,7 +22,7 @@ class SortFmAdapter<T>(
     private var preItemClickView: View? = null
 
     @RequiresApi(Build.VERSION_CODES.M)
-    override fun onBindViewHolder(holder: SimpleViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
         if (position == 0 && isFirst) {
             isFirst = false

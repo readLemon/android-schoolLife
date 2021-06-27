@@ -17,10 +17,7 @@ import com.school.dailylife.R
 import com.school.dailylife.config.IS_FIRST_LOGIN
 import com.school.dailylife.util.defaultSharedPrefrence
 import com.school.dailylife.util.toast
-import com.school.dailylife.view.fragment.BaseFragment
-import com.school.dailylife.view.fragment.MainFragment
-import com.school.dailylife.view.fragment.MineFragment
-import com.school.dailylife.view.fragment.SortFragment
+import com.school.dailylife.view.fragment.*
 import com.school.dailylife.view.fragment.dialog.GetMsgDialog
 import com.school.dailylife.viewmodel.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -94,6 +91,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
         val mFragmentClass = arrayOf(
             MainFragment::class.java,
             SortFragment::class.java,
+            LostFragment::class.java,
             MineFragment::class.java
         )
         val mFragmentInstance = HashMap<Class<out BaseFragment>, Fragment>();
@@ -123,7 +121,9 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
             R.id.nav_sort -> pos = 1
 
-            R.id.nav_mine -> pos = 2
+            R.id.nav_lost -> pos = 2
+
+            R.id.nav_mine -> pos = 3
         }
 
         if (pos != preNavPos) {

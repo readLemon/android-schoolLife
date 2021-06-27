@@ -16,8 +16,8 @@ class RetrofitManager private constructor() {
 
     companion object {
 
-        private const val DEFAULT_TIME_OUT = 10L
-        private const val DEFAULT_READ_TIME_OUT = 10L
+        private const val DEFAULT_TIME_OUT = 100L
+        private const val DEFAULT_READ_TIME_OUT = 100L
 
         fun getInstance(): RetrofitManager {
             return SingletonHolder.INSTANCE
