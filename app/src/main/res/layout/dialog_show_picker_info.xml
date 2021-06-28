@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_search_result_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_search_result_right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_search_result_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_dialog_search_result_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_lost_dialog_title"
+        android:text="这里是失物招领信息"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/gl_dialog_search_result_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_search_result_left"
+        app:layout_constraintTop_toBottomOf="@+id/gl_dialog_search_result_top" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_card_stu_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="卡片-学号：xxxxxxxx"
+        app:layout_constraintTop_toBottomOf="@+id/tv_lost_dialog_title"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_search_result_left" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_card_stu_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="卡片-姓名：xxxxxxxx"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_stu_number"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_search_result_left" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_card_stu_college"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="卡片-学院：xxxxx"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_stu_name"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_search_result_left" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_picker_stu_qq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系方式-qq：xxxxx"
+        app:layout_constraintTop_toBottomOf="@+id/tv_card_stu_college"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_search_result_left" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_picker_stu_tel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="联系方式-tel：xxxxx"
+        app:layout_constraintTop_toBottomOf="@+id/tv_picker_stu_qq"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_search_result_left" />
+
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/iv_close_picker_info_dialog"
+        android:src="@drawable/ic_pubed_close_dialog"
+        android:rotation="45"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/gl_dialog_search_result_right"
+        app:layout_constraintStart_toStartOf="@+id/gl_dialog_search_result_left"
+        app:layout_constraintTop_toBottomOf="@+id/gl_dialog_search_result_bottom"
+        android:layout_width="60dp"
+        android:layout_height="60dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

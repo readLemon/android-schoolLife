@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="user"
             type="com.school.dailylife.bean.User" />
     </data>
 
-    <androidx.core.widget.NestedScrollView
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    <androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_white"
@@ -42,8 +43,8 @@
                     android:id="@+id/tv_fm_mine_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="登录/注册 >"
                     android:layout_marginStart="5dp"
+                    android:text="登录/注册 >"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_mine_user_avatar"
                     app:layout_constraintStart_toEndOf="@+id/iv_mine_user_avatar"
@@ -53,23 +54,36 @@
                     android:id="@+id/iv_mine_setting"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:padding="10dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginEnd="10dp"
+                    android:padding="10dp"
                     android:src="@drawable/ic_mine_setting"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_private_msg"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:padding="10dp"
                     android:layout_marginEnd="10dp"
+                    android:padding="10dp"
                     android:src="@drawable/ic_mine_message"
                     app:layout_constraintBottom_toBottomOf="@+id/iv_mine_setting"
                     app:layout_constraintEnd_toStartOf="@+id/iv_mine_setting"
                     app:layout_constraintTop_toTopOf="@+id/iv_mine_setting" />
 
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_red_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="7dp"
+                    android:src="@drawable/ic_red_point"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/iv_private_msg"
+                    app:layout_constraintTop_toTopOf="@+id/iv_private_msg"
+                    tools:visibility="visible" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <LinearLayout

@@ -16,7 +16,9 @@ data class MineFmBean(
     @SerializedName("soldingNum")
     val soldingNum: Int,
     @SerializedName("soledNum")
-    val soledNum: Int
+    val soledNum: Int,
+    @SerializedName("lost")
+    val lostPickerBean: LostPickerBean
 ) {
     data class CommentWall(
         @SerializedName("commentContent")
