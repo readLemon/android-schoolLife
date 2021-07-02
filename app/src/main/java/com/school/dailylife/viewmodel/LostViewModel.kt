@@ -6,6 +6,7 @@ import com.school.dailylife.bean.LostSquareBean
 import com.school.dailylife.bean.StuCardMessageBean
 import com.school.dailylife.config.NET_REQUEST_SUCCESSFULL
 import com.school.dailylife.repository.LostRepository
+import com.school.dailylife.util.BitmapUtil
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -37,7 +38,7 @@ class LostViewModel : BaseViewModel() {
         val builder = MultipartBody.Builder()
             .setType(MultipartBody.FORM)
 
-        val file = File(imagePath)
+        val file = File(BitmapUtil.compressImage(imagePath))
         builder.addFormDataPart(
             "file",
             file.name,

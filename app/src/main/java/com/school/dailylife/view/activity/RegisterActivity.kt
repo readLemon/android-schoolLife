@@ -47,12 +47,12 @@ class RegisterActivity : BaseActivity() {
     }
 
     private fun isUsernameAvalable(username: String): Boolean {
-        return username.trim().length == 6
+        return username.trim().length == 10
     }
 
 
     private fun isPassword(psw: String): Boolean {
-        return psw.trim().length >= 6
+        return psw.trim().length == 6
     }
 
     override fun onDestroy() {

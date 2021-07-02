@@ -6,6 +6,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import com.school.dailylife.R
 import com.school.dailylife.bean.LostPickerBean
+import com.school.dailylife.bean.TextItem
 import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.activity.LoginActivity
@@ -30,6 +31,10 @@ class MineFragment : LazyFragment() {
         viewmodel.getMineData()
     }
 
+    override fun onResume() {
+        super.onResume()
+
+    }
     override fun afterViewCteated(view: View) {
         if (CurrentUser.getCurrentUser() == null) {
             tv_fm_mine_username.setOnClickListener {
@@ -60,6 +65,21 @@ class MineFragment : LazyFragment() {
                         }
                     }
                 }
+                val wallData = mutableListOf<String>()
+                for (tmp in it.commentWall) {
+                    wallData.add(tmp.commentContent)
+                }
+
+                val textItems = mutableListOf<TextItem>()
+                for (i in 0 until wallData.size) {
+                    val item = TextItem()
+                    item.index = 10F
+                    item.value = wallData[i % 10]
+                    textItems.add(item)
+                }
+
+                tw_comment.setData(textItems, requireContext())
+
             }
         }
 
@@ -79,6 +99,7 @@ class MineFragment : LazyFragment() {
         iv_mine_pubed_product.setOnClickListener {
             viewmodel.getMyPubedProducts()
         }
+
 
     }
 

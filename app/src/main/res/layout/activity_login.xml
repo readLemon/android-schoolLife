@@ -69,7 +69,7 @@
             android:hint="请输入用户ID"
             android:inputType="number"
             android:maxLines="1"
-            android:maxLength="6"
+            android:maxLength="10"
             android:paddingStart="10dp"
             tools:ignore="RtlSymmetry" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -108,7 +108,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="*帐号和密码皆是六位数"
+        android:text="*帐号是学号"
         app:layout_constraintStart_toStartOf="@+id/til_login_psw"
         app:layout_constraintTop_toBottomOf="@+id/til_login_psw" />
 

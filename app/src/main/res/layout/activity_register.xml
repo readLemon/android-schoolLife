@@ -11,9 +11,9 @@
         android:id="@+id/iv_register_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
+        android:padding="10dp"
         android:src="@drawable/ic_baseline_arrow_back_ios_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -50,8 +50,8 @@
             android:background="@drawable/shape_login_username_bg"
             android:gravity="center"
             android:hint="请输入用户ID"
-            android:maxLength="6"
             android:inputType="number"
+            android:maxLength="10"
             android:maxLines="1"
             android:paddingStart="10dp"
             tools:ignore="RtlSymmetry" />
@@ -79,6 +79,7 @@
             android:gravity="center"
             android:hint="请输入密码"
             android:inputType="textPassword"
+            android:maxLength="6"
             android:maxLines="1"
             android:paddingStart="10dp"
             android:textSize="16sp"

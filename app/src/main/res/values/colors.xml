@@ -6,4 +6,13 @@
     <color name="colorAccent">#03DAC5</color>
     <color name="color_white">#f4f7f7</color>
     <color name="color_dark">#1f4e5f</color>
+
+
+    <color name="yellow">#FFFF00</color><!--黄色 -->
+    <color name="orange">#FFA500</color><!--橙色 -->
+    <color name="red">#FF0000</color><!--红色 -->
+    <color name="purple">#800080</color><!--紫色 -->
+    <color name="cyan">#00FFFF</color><!--青色 -->
+    <color name="blue">#0000FF</color><!--蓝色 -->
+    <color name="green">#008000</color><!--绿色 -->
 </resources>

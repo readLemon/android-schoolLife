@@ -3,6 +3,7 @@ package com.school.dailylife.viewmodel
 import androidx.lifecycle.MutableLiveData
 import com.school.dailylife.config.NET_REQUEST_SUCCESSFULL
 import com.school.dailylife.repository.PublishRepository
+import com.school.dailylife.util.BitmapUtil
 import okhttp3.MediaType
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -31,7 +32,7 @@ class PublishViewModel : BaseViewModel() {
             .addFormDataPart("description", desc)
 
         for (path in photoPathes) {
-            val file = File(path)
+            val file = File(BitmapUtil.compressImage(path))
             builder.addFormDataPart("file[]", file.name, RequestBody.create(MediaType.parse("image/*"), file))
         }
 

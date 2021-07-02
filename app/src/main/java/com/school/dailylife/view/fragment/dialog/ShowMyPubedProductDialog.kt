@@ -6,6 +6,7 @@ import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.school.dailylife.App
@@ -59,11 +60,11 @@ class ShowMyPubedProductDialog(private val dataBean: List<SoledProductBean.Produ
         val adapter = CommonRecyclerAdapter(
             R.layout.item_mine_pubed_products,
             dataBean,
-            {
+            bindHolder = {
                 tv_dialog_show_pubed_title.text = it.title
                 tv_dialog_mine_pubed_desc.text = it.description
                 tv_dialog_pubed_price.text = "$${it.price}"
-                tv_dialog_product_isSoled.text = if (it.status == PRODUCT_SELLING_STATE) "已卖出" else "在售"
+                tv_dialog_product_isSoled.text = if (it.status == PRODUCT_SELLING_STATE) "在售" else "已出售"
                 if (this.rootView is SlideLayout) {
                     (this.rootView as SlideLayout) .slideListener = mSlideListener
                 }

@@ -10,8 +10,8 @@ data class MineFmBean(
     @SerializedName("accumulatedComment")
     val accumulatedComment: Int,
     @SerializedName("reputationCore")
-    val reputationCore: Int,
-    @SerializedName("innerComments")
+    val reputationCore: Float,
+    @SerializedName("commentWall")
     val commentWall: List<CommentWall>,
     @SerializedName("soldingNum")
     val soldingNum: Int,
@@ -25,7 +25,7 @@ data class MineFmBean(
         val commentContent: String,
         @SerializedName("commentatorAvatarPic")
         val commentatorAvatarPic: String,
-        @SerializedName("uid")
+        @SerializedName("commentorUid")
         val commentatorUid: Int
     )
 }
