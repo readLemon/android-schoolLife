@@ -18,10 +18,12 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         beforeSetContentViewId(savedInstanceState)
         if (setContentView()) setContentView(contentViewId)
+        observeVM()
         initView(savedInstanceState)
     }
 
     protected open fun initView(savedInstanceState: Bundle?) = Unit
+    protected open fun observeVM() = Unit
 
     protected open fun beforeSetContentViewId(savedInstanceState: Bundle?) = Unit
 

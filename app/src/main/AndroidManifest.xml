@@ -5,23 +5,24 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:preserveLegacyExternalStorage="true"
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:preserveLegacyExternalStorage="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.PublishStuCardActivity"></activity>
+        <activity android:name=".view.activity.BotActivity"></activity>
+        <activity android:name=".view.activity.PublishStuCardActivity" />
         <activity android:name=".view.activity.SettingActivity" />
         <activity android:name=".view.activity.ProductDetailActivity" />
-        <activity android:name=".view.activity.PublishActivity"></activity>
+        <activity android:name=".view.activity.PublishActivity" />
         <activity android:name=".view.activity.RegisterActivity" />
         <activity android:name=".view.activity.LoginActivity">
             <intent-filter>

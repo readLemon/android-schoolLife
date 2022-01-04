@@ -50,9 +50,9 @@
                 android:id="@+id/tv_main_search"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="搜索"
                 android:textSize="16sp"
-                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -102,19 +102,35 @@
                 app:layout_constraintStart_toEndOf="@+id/tv_main_find_lost"
                 app:layout_constraintTop_toTopOf="@+id/tv_main_find_lost" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_main"
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/srl_main_data"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                tools:itemCount="20"
-                app:spanCount="2"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginBottom="10dp"
-                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-                tools:listitem="@layout/item_rv_main"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_main_find_lost"/>
+                app:layout_constraintTop_toBottomOf="@+id/tv_main_find_lost">
+
+                <com.scwang.smart.refresh.header.ClassicsHeader
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="10dp"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:spanCount="2"
+                    tools:itemCount="20"
+                    tools:listitem="@layout/item_rv_main" />
+
+                <com.scwang.smart.refresh.footer.ClassicsFooter
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

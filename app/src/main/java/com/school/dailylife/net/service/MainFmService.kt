@@ -1,7 +1,6 @@
 package com.school.dailylife.net.service
 
 import com.school.dailylife.bean.MainDataBean
-import com.school.dailylife.bean.MainProductBean
 import com.school.dailylife.bean.SearchResultBean
 import com.school.dailylife.config.Api
 import com.school.dailylife.net.JsonWrapper
@@ -14,10 +13,11 @@ import retrofit2.http.*
  */
 interface MainFmService {
 
-
-    @GET(Api.mainFmData)
+    @FormUrlEncoded
+    @POST(Api.getInitData)
     fun getMainData(
-        @Header(Api.TOKEN_STR) token: String
+        @Header(Api.TOKEN_STR) token: String,
+        @Field("index") index: Int
     ): Observable<JsonWrapper<MainDataBean>>
 
 

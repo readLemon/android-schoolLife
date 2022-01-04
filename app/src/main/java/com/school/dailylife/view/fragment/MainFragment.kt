@@ -37,7 +37,7 @@ class MainFragment : BaseFragment() {
 
     override fun afterViewCteated(view: View) {
         if (CurrentUser.user != null) {
-            viewmodel.getMainData()
+            viewmodel.refresh()
         }
         initProductRecyclerview()
         initBanner()
@@ -50,6 +50,14 @@ class MainFragment : BaseFragment() {
             } else {
                 Toast.makeText(requireContext(), "你输入的搜索内容不符合要求！", Toast.LENGTH_SHORT).show()
             }
+        }
+
+        srl_main_data.setOnRefreshListener {
+            viewmodel.refresh()
+        }
+
+        srl_main_data.setOnLoadMoreListener {
+            viewmodel.loadMore()
         }
 
     }
@@ -73,17 +81,17 @@ class MainFragment : BaseFragment() {
         banner_main.apply {
             addBannerLifecycleObserver(this@MainFragment)
             adapter = mAdapter
-            setIndicator(CircleIndicator(requireContext()))
+            indicator = CircleIndicator(requireContext())
             setPageTransformer(DepthPageTransformer())
         }
 
-        viewmodel.bannerData.observe({
+        viewmodel.bannerData.observe {
             if (!it.isNullOrEmpty()) {
                 bannerDatas.clear()
                 bannerDatas.addAll(it)
                 mAdapter.notifyDataSetChanged()
             }
-        })
+        }
 
 
         tv_main_publish.setOnClickListener {
@@ -118,13 +126,21 @@ class MainFragment : BaseFragment() {
         )
         rv_main.adapter = adapter
 
-        viewmodel.mainFmProductData.observe({
+        viewmodel.mainFmProductData.observe {
             if (!it.isNullOrEmpty()) {
                 datas.clear()
                 datas.addAll(it)
                 adapter.notifyDataSetChanged()
             }
-        })
+
+            if (srl_main_data.isRefreshing) {
+                srl_main_data.finishRefresh()
+            }
+
+            if (srl_main_data.isLoading) {
+                srl_main_data.finishLoadMore()
+            }
+        }
     }
 
 }

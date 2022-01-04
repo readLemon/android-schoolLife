@@ -9,6 +9,7 @@ import com.school.dailylife.bean.LostPickerBean
 import com.school.dailylife.bean.TextItem
 import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.loadPic
+import com.school.dailylife.view.activity.BotActivity
 import com.school.dailylife.view.activity.LoginActivity
 import com.school.dailylife.view.activity.SettingActivity
 import com.school.dailylife.view.fragment.dialog.ShowMyPubedProductDialog
@@ -31,10 +32,6 @@ class MineFragment : LazyFragment() {
         viewmodel.getMineData()
     }
 
-    override fun onResume() {
-        super.onResume()
-
-    }
     override fun afterViewCteated(view: View) {
         if (CurrentUser.getCurrentUser() == null) {
             tv_fm_mine_username.setOnClickListener {
@@ -46,6 +43,7 @@ class MineFragment : LazyFragment() {
             tv_fm_mine_username.text = CurrentUser.getCurrentUser().nickname
             tv_fm_mine_soled_num.invalidate()
         }
+        iv_bot.setOnClickListener { startActivity(Intent(activity, BotActivity::class.java)) }
 
         viewmodel.mineBaseData.observe {
             if (it != null) {

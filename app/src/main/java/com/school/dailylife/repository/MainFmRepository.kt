@@ -17,11 +17,12 @@ class MainFmRepository : BaseRepository<MainFmService>() {
         get() = MainFmService::class.java
 
 
-    fun getMainFmData(): Observable<MainDataBean> {
+    fun getMainFmData(index: Int): Observable<MainDataBean> {
         return observable(
             service.getMainData(
-                CurrentUser.getCurrentUser().token
 //            "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxIiwiaWF0IjoxNjA2ODAyODE5fQ.l4L7lIr3Yg5na2pCsY15ggoUxEzfgLcGnel87nT6h7I"
+                CurrentUser.getCurrentUser().token,
+                index
             )
         ).map(JsonWrapperFunc())
     }

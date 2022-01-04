@@ -14,7 +14,7 @@ object Api {
 
     const val register = "/register"
 
-    const val mainFmData = "/getInitData"
+    const val getInitData = "/getInitData"
 
     const val search = "/getProductBySearch"
 
@@ -43,4 +43,10 @@ object Api {
     const val uploadCardMessage = "/publish_card"
 
     const val getLostCards = "/get_losts "
+
+    // 上传埋点信息
+    const val postEvent = "/log/event "
+
+    // 机器人交流信息
+    const val chat = "/chat"
 }

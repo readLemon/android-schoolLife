@@ -1,12 +1,12 @@
 package com.school.dailylife.view.activity
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import com.school.dailylife.R
 import com.school.dailylife.bean.ProductDetailBean
 import com.school.dailylife.config.INTENT_KEY_PRODUCT_ID
 import com.school.dailylife.config.INTENT_KEY_PRODUCT_OWNER_ID
+import com.school.dailylife.event.AppLogUtil
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.util.toast
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
@@ -47,29 +47,30 @@ class ProductDetailActivity : BaseActivity() {
             toast("没有收到商品id或者用户id！")
             finish()
         }
+        mobEnterProductDetail(pid)
 
         ownerContactWayAdapter = CommonRecyclerAdapter(
             R.layout.item_rv_key_value,
             ownerContactWays,
-            {
-                this.tv_rv_key.setText(it.name)
-                this.tv_rv_value.setText(it.value)
+            bindHolder = {
+                this.tv_rv_key.text = it.name
+                this.tv_rv_value.text = it.value
             }
         )
 
         productPropertyAdapter = CommonRecyclerAdapter(
             R.layout.item_rv_key_value,
             productProperties,
-            {
-                this.tv_rv_key.setText(it.propertyName)
-                this.tv_rv_value.setText(it.propertyValue)
+            bindHolder = {
+                this.tv_rv_key.text = it.propertyName
+                this.tv_rv_value.text = it.propertyValue
             }
         )
 
         productPicsAdapter = CommonRecyclerAdapter(
             R.layout.item_pubing_selected_pic,
             productPics,
-            {
+            bindHolder = {
                 this.iv_pubing_selected_pic.loadPic(it)
             }
         )
@@ -100,6 +101,10 @@ class ProductDetailActivity : BaseActivity() {
             },
             { it.printStackTrace() }
         )
+    }
+
+    private fun mobEnterProductDetail(productId: Int) {
+        AppLogUtil.postEnterProductDetailEvent(productId)
     }
 
     override fun onDestroy() {
