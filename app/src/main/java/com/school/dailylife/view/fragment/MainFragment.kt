@@ -15,6 +15,7 @@ import com.school.dailylife.util.CurrentUser
 import com.school.dailylife.util.loadPic
 import com.school.dailylife.view.activity.ProductDetailActivity
 import com.school.dailylife.view.activity.PublishActivity
+import com.school.dailylife.view.activity.PublishCircleActivity
 import com.school.dailylife.view.adapter.CommonRecyclerAdapter
 import com.school.dailylife.view.fragment.dialog.SearchResultDialog
 import com.school.dailylife.viewmodel.MainFmViewModel
@@ -41,6 +42,10 @@ class MainFragment : BaseFragment() {
         }
         initProductRecyclerview()
         initBanner()
+
+        tv_main_find_lost.setOnClickListener {
+            startActivity(Intent(requireContext(), PublishCircleActivity::class.java))
+        }
 
         tv_main_search.setOnClickListener {
             val searchTar = et_main_search.text.toString().trim()

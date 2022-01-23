@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civ_circle_rv_avatar"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/ic_main_bottom_mine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_circle_rv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:ellipsize="marquee"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/civ_circle_rv_avatar"
+        app:layout_constraintStart_toEndOf="@+id/civ_circle_rv_avatar"
+        app:layout_constraintTop_toTopOf="@+id/civ_circle_rv_avatar"
+        tools:text="三十三岁搜索" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_circle_rv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="marquee"
+        android:maxLines="2"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/civ_circle_rv_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_circle_rv_username"
+        tools:text="我是标题: xxxxx" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_circle_rv_detail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="marquee"
+        android:maxLines="2"
+        android:textColor="#000000"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/civ_circle_rv_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_circle_rv_title"
+        tools:text="xxxxxxxxxxxxxxx" />
+
+    <LinearLayout
+        android:id="@+id/ll_circle_photos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/civ_circle_rv_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/tv_circle_rv_detail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -82,9 +82,6 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
     }
 
 
-
-
-
     inner class MyViewPagerAdapter(fm: FragmentManager, life: Lifecycle) :
         FragmentStateAdapter(fm, life) {
 
@@ -92,6 +89,7 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
             MainFragment::class.java,
             SortFragment::class.java,
             LostFragment::class.java,
+            CircleFragment::class.java,
             MineFragment::class.java
         )
         val mFragmentInstance = HashMap<Class<out BaseFragment>, Fragment>();
@@ -123,7 +121,9 @@ class MainActivity : BaseActivity(), BottomNavigationView.OnNavigationItemSelect
 
             R.id.nav_lost -> pos = 2
 
-            R.id.nav_mine -> pos = 3
+            R.id.nav_circle -> pos = 3
+
+            R.id.nav_mine -> pos = 4
         }
 
         if (pos != preNavPos) {

@@ -18,7 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.activity.BotActivity"></activity>
+        <activity android:name=".view.activity.PublishCircleActivity"></activity>
+        <activity android:name=".view.activity.BotActivity" />
         <activity android:name=".view.activity.PublishStuCardActivity" />
         <activity android:name=".view.activity.SettingActivity" />
         <activity android:name=".view.activity.ProductDetailActivity" />

@@ -21,6 +21,12 @@
         tools:ignore="HardcodedText" />
 
     <item
+        android:id="@+id/nav_circle"
+        android:icon="@drawable/ic_circle"
+        android:title="圈子"
+        tools:ignore="HardcodedText" />
+
+    <item
         android:id="@+id/nav_mine"
         android:icon="@drawable/ic_main_bottom_mine"
         android:title="我的"

@@ -16,7 +16,7 @@ import java.io.File
 class PublishViewModel : BaseViewModel() {
 
     private val repo by lazy { PublishRepository() }
-    val isUploadProductSuccess by lazy { MutableLiveData<Boolean>() }
+    val isUploadProductSuccess by lazy { MutableLiveData<Int>() }
 
     fun uploadDescPhotos(
         price: Float,
@@ -39,11 +39,11 @@ class PublishViewModel : BaseViewModel() {
 
         repo.uploadDescPhotos(price, typeId, categoryId, builder.build()).subscribe(
             {
-                isUploadProductSuccess.value = (it.status == NET_REQUEST_SUCCESSFULL)
+                isUploadProductSuccess.value = it.status
             },
             {
                 it.printStackTrace()
-                isUploadProductSuccess.value = false
+                isUploadProductSuccess.value = 500
             }).lifeCycle()
     }
 

@@ -49,4 +49,9 @@ object Api {
 
     // 机器人交流信息
     const val chat = "/chat"
+
+    // 圈子
+    const val circle = "/getCircle"
+
+    const val uploadCircle = "/uploadCircle"
 }

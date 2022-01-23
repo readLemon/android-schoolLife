@@ -41,18 +41,20 @@ class PublishActivity : BaseActivity(), View.OnClickListener {
         adapter = CommonRecyclerAdapter(
             R.layout.item_pubing_selected_pic,
             this.pathList,
-            { this.iv_pubing_selected_pic.loadPic(it) }
+            bindHolder = { this.iv_pubing_selected_pic.loadPic(it) }
         )
         rv_pubing_show_selected_pic.adapter = adapter
 
         viewmodel.isUploadProductSuccess.observe(this@PublishActivity, {
-            if (it) {
+            if (it == 200) {
                 toast("上传商品成功！")
-            } else {
+            } else if (it == 1104){
+                toast("商品类型监测不通过")
+            }else {
 
                 toast("上传商品失败！")
             }
-            if (dialog != null && dialog?.isVisible ?: false) {
+            if (dialog != null && dialog?.isVisible == true) {
             dialog?.dismiss()
         }
         })
@@ -75,16 +77,16 @@ class PublishActivity : BaseActivity(), View.OnClickListener {
 
             //选择typeId
             R.id.tv_pubing_type_id -> {
-                ChooseProductIdDialog(typeId.keys.toList(), {
-                    tv_pubing_type_id.setText(it)
-                }).show(supportFragmentManager, "type_id")
+                ChooseProductIdDialog(typeId.keys.toList()) {
+                    tv_pubing_type_id.text = it
+                }.show(supportFragmentManager, "type_id")
             }
 
             //选择categoryId
             R.id.tv_pubing_catagory_id -> {
-                ChooseProductIdDialog(categoryId.keys.toList(), {
-                    tv_pubing_catagory_id.setText(it)
-                }).show(supportFragmentManager, "category_id")
+                ChooseProductIdDialog(categoryId.keys.toList()) {
+                    tv_pubing_catagory_id.text = it
+                }.show(supportFragmentManager, "category_id")
             }
         }
     }
